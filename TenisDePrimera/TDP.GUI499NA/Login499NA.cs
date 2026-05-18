@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace TDP.GUI499NA
 {
-    public partial class Login : Form
+    public partial class Login499NA : Form
     {
-        public Login()
+        public Login499NA()
         {
             InitializeComponent();
+        }
+
+        private void Login499NA_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
