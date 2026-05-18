@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,6 +75,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TDP.BE499NA\TDP.BE499NA.csproj">
+      <Project>{e0655c56-9a6a-415f-b141-a8c623cc8cbf}</Project>
+      <Name>TDP.BE499NA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TDP.BLL499NA\TDP.BLL499NA.csproj">
+      <Project>{4ba9a925-be9b-48de-8cdb-c00b0660ac60}</Project>
+      <Name>TDP.BLL499NA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TDP.Servicios499NA\TDP.Servicios499NA.csproj">
+      <Project>{676b7d87-689c-4f6d-9c96-9c40646617c7}</Project>
+      <Name>TDP.Servicios499NA</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
