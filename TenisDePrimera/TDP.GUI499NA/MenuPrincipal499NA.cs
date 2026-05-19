@@ -16,5 +16,10 @@ namespace TDP.GUI499NA
         {
             InitializeComponent();
         }
+
+        private void maestroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

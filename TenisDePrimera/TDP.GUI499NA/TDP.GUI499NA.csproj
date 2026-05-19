@@ -46,16 +46,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CambiarContraseña499NA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambiarContraseña499NA.Designer.cs">
+      <DependentUpon>CambiarContraseña499NA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios499NA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios499NA.Designer.cs">
+      <DependentUpon>GestionUsuarios499NA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login499NA.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login499NA.Designer.cs">
       <DependentUpon>Login499NA.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logout499NA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logout499NA.Designer.cs">
+      <DependentUpon>Logout499NA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPrincipal499NA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPrincipal499NA.Designer.cs">
+      <DependentUpon>MenuPrincipal499NA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CambiarContraseña499NA.resx">
+      <DependentUpon>CambiarContraseña499NA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionUsuarios499NA.resx">
+      <DependentUpon>GestionUsuarios499NA.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login499NA.resx">
       <DependentUpon>Login499NA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logout499NA.resx">
+      <DependentUpon>Logout499NA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuPrincipal499NA.resx">
+      <DependentUpon>MenuPrincipal499NA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

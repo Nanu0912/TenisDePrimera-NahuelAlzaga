@@ -76,6 +76,9 @@
             // btnIngresar
             // 
             this.btnIngresar.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnIngresar.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnIngresar.FlatAppearance.BorderSize = 2;
+            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnIngresar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnIngresar.Location = new System.Drawing.Point(418, 329);
             this.btnIngresar.Name = "btnIngresar";
@@ -87,6 +90,7 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalir.Location = new System.Drawing.Point(623, 329);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(199, 61);

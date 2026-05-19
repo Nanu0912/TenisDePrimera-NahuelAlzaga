@@ -16,5 +16,10 @@ namespace TDP.GUI499NA
         {
             InitializeComponent();
         }
+
+        private void Logout499NA_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
