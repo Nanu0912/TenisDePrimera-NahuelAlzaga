@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bitacora499NA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bitacora499NA.Designer.cs">
+      <DependentUpon>Bitacora499NA.cs</DependentUpon>
+    </Compile>
     <Compile Include="CambiarContraseña499NA.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Bitacora499NA.resx">
+      <DependentUpon>Bitacora499NA.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CambiarContraseña499NA.resx">
       <DependentUpon>CambiarContraseña499NA.cs</DependentUpon>
     </EmbeddedResource>

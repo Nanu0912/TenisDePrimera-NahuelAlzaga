@@ -46,5 +46,12 @@ namespace TDP.GUI499NA
 
             gu.ShowDialog();
         }
+
+        private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitacora499NA b = new Bitacora499NA();
+
+            b.ShowDialog();
+        }
     }
 }

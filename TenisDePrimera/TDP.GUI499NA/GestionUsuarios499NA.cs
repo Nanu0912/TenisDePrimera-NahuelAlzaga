@@ -20,7 +20,7 @@ namespace TDP.GUI499NA
         public GestionUsuarios499NA()
         {
             InitializeComponent();
-            lblMensajeSistema.Text = "";
+            
         }
 
         private void GestionUsuarios499NA_Load(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace TDP.GUI499NA
 
         private void gbNotificaciones_Enter(object sender, EventArgs e)
         {
-
+            lblMensajeSistema.Text = "";
         }
 
         private void rbActivos_CheckedChanged(object sender, EventArgs e)
@@ -193,40 +193,14 @@ namespace TDP.GUI499NA
 
         private void btnDesbloquear_Click(object sender, EventArgs e)
         {
-            // Alerta 1: Para saber si el botón físicamente responde al clic
-            MessageBox.Show("¡El botón Desbloquear responde al clic correctamente!", "Paso 1");
+            
+        }
 
-            if (dgUsuarios.CurrentRow == null)
-            {
-                MessageBox.Show("La grilla no tiene ninguna fila seleccionada (CurrentRow es NULL).", "Alerta de Control");
-                return;
-            }
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal499NA mp = new MenuPrincipal499NA();
 
-            try
-            {
-                UsuarioBE499NA seleccionado499NA = (UsuarioBE499NA)dgUsuarios.CurrentRow.DataBoundItem;
-
-                // Alerta 2: Para ver qué usuario leyó de la grilla
-                MessageBox.Show($"Usuario seleccionado para desbloquear: {seleccionado499NA.NombreUsuario499NA}\nEstado Bloqueo: {seleccionado499NA.Bloqueo499NA}", "Paso 2");
-
-                // Alerta 3: Justo antes de ir a la base de datos
-                MessageBox.Show("Invocando a la BLL para actualizar SQL...", "Paso 3");
-
-                usuariosBLL499NA.DesbloquearUsuario499NA(seleccionado499NA.NombreUsuario499NA);
-
-                // Alerta 4: Si llegó acá, la base de datos no falló
-                MessageBox.Show("La BLL ejecutó con éxito. Refrescando interfaz...", "Paso 4");
-
-                cbBloqueado.Checked = false;
-                lblMensajeSistema.Text = $"El usuario '{seleccionado499NA.NombreUsuario499NA}' fue desbloqueado con éxito.";
-
-                LlenarGrilla499NA();
-            }
-            catch (Exception ex)
-            {
-                // Forzamos a que el error salte en un cartel flotante sí o sí
-                MessageBox.Show("Saltó un error en el proceso:\n\n" + ex.Message, "ERROR CRÍTICO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            mp.Show();
         }
     }
 }

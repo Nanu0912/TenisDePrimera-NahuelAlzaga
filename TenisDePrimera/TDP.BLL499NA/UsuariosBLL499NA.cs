@@ -85,15 +85,10 @@ namespace TDP.BLL499NA
             return UsuariosDAL499NA.Instancia499NA.ListarUsuarios499NA(mostrarTodos);
         }
 
-        public void DesbloquearUsuario499NA(string nombreUsuario)
+        public void DesbloquearUsuario499NA(string nombreUsuarioADesbloquear499NA)
         {
-            var usuarioActual = Servicios499NA.SessionManager499NA.Instancia499NA.UsuarioLogueado499NA;
-
-            if (usuarioActual == null)
-            {
-                throw new Exception("Error de seguridad: No hay una sesión activa en el sistema.");
-            }
-            UsuariosDAL499NA.Instancia499NA.DesbloquearUsuario499NA(nombreUsuario);
+            
+          
         }
     }
 }

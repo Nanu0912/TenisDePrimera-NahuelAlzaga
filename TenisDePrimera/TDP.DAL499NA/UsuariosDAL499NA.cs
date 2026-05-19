@@ -67,19 +67,19 @@ namespace TDP.DAL499NA
         {
             using (SqlConnection conexion499NA = new SqlConnection(cadenaConexion499NA))
             {
-                using (SqlCommand comando499NA = new SqlCommand("SP_Usuario_Insertar", conexion499NA))
+                using (SqlCommand cmd = new SqlCommand("SP_Usuario_Insertar", conexion499NA))
                 {
-                    comando499NA.CommandType = CommandType.StoredProcedure;
-                    comando499NA.Parameters.AddWithValue("@DNI", nuevoUsuario499NA.Dni499NA);
-                    comando499NA.Parameters.AddWithValue("@Apellidos", nuevoUsuario499NA.Apellidos499NA);
-                    comando499NA.Parameters.AddWithValue("@Nombre", nuevoUsuario499NA.Nombre499NA);
-                    comando499NA.Parameters.AddWithValue("@NombreUsuario", nuevoUsuario499NA.NombreUsuario499NA);
-                    comando499NA.Parameters.AddWithValue("@Contraseña", nuevoUsuario499NA.Contraseña499NA);
-                    comando499NA.Parameters.AddWithValue("@NombreRol", nuevoUsuario499NA.Rol499NA);
-                    comando499NA.Parameters.AddWithValue("@Email", nuevoUsuario499NA.Email499NA);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@DNI", nuevoUsuario499NA.Dni499NA);
+                    cmd.Parameters.AddWithValue("@Apellidos", nuevoUsuario499NA.Apellidos499NA);
+                    cmd.Parameters.AddWithValue("@Nombre", nuevoUsuario499NA.Nombre499NA);
+                    cmd.Parameters.AddWithValue("@NombreUsuario", nuevoUsuario499NA.NombreUsuario499NA);
+                    cmd.Parameters.AddWithValue("@Contraseña", nuevoUsuario499NA.Contraseña499NA);
+                    cmd.Parameters.AddWithValue("@NombreRol", nuevoUsuario499NA.Rol499NA);
+                    cmd.Parameters.AddWithValue("@Email", nuevoUsuario499NA.Email499NA);
 
                     conexion499NA.Open();
-                    comando499NA.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
@@ -114,38 +114,38 @@ namespace TDP.DAL499NA
             }
         }
 
-        public List<UsuarioBE499NA> ListarUsuarios499NA(bool mostrarTodos499NA)
+        public List<UsuarioBE499NA> ListarUsuarios499NA(bool mostrarTodos)
         {
-            List<UsuarioBE499NA> lista499NA = new List<UsuarioBE499NA>();
+            List<UsuarioBE499NA> lista = new List<UsuarioBE499NA>();
 
-            using (SqlConnection conexion499NA = new SqlConnection(cadenaConexion499NA))
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion499NA))
             {
-                using (SqlCommand comando499NA = new SqlCommand("SP_Usuario_Listar", conexion499NA))
+                using (SqlCommand cmd = new SqlCommand("SP_Usuario_Listar", conexion))
                 {
-                    comando499NA.CommandType = CommandType.StoredProcedure;
-                    comando499NA.Parameters.AddWithValue("@MostrarTodos", mostrarTodos499NA);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@MostrarTodos", mostrarTodos);
 
-                    conexion499NA.Open();
-                    using (SqlDataReader lector499NA = comando499NA.ExecuteReader())
+                    conexion.Open();
+                    using (SqlDataReader r = cmd.ExecuteReader())
                     {
-                        while (lector499NA.Read())
+                        while (r.Read())
                         {
-                            lista499NA.Add(new UsuarioBE499NA
+                            lista.Add(new UsuarioBE499NA
                             {
-                                Dni499NA = lector499NA["DNI"].ToString(),
-                                Nombre499NA = lector499NA["Nombre"].ToString(),
-                                Apellidos499NA = lector499NA["Apellidos"].ToString(),
-                                NombreUsuario499NA = lector499NA["NombreUsuario"].ToString(),
-                                Rol499NA = lector499NA["NombreRol"].ToString(),
-                                Email499NA = lector499NA["Email"].ToString(),
-                                Bloqueo499NA = Convert.ToBoolean(lector499NA["Bloqueo"]),
-                                Activo499NA = Convert.ToBoolean(lector499NA["Activo"])
+                                Dni499NA = r["DNI"].ToString(),
+                                Nombre499NA = r["Nombre"].ToString(),
+                                Apellidos499NA = r["Apellidos"].ToString(),
+                                NombreUsuario499NA = r["NombreUsuario"].ToString(),
+                                Rol499NA = r["NombreRol"].ToString(),
+                                Email499NA = r["Email"].ToString(),
+                                Bloqueo499NA = Convert.ToBoolean(r["Bloqueo"]),
+                                Activo499NA = Convert.ToBoolean(r["Activo"])
                             });
                         }
                     }
                 }
             }
-            return lista499NA;
+            return lista;
         }
 
         public void DesbloquearUsuario499NA(string nombreUsuario)
