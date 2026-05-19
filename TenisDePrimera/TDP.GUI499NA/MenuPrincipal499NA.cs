@@ -24,10 +24,10 @@ namespace TDP.GUI499NA
 
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Logout499NA pantallaLogout499NA = new Logout499NA();
+            Logout499NA plogout = new Logout499NA();
 
             
-            pantallaLogout499NA.ShowDialog();
+            plogout.ShowDialog();
 
             
             
@@ -35,7 +35,9 @@ namespace TDP.GUI499NA
 
         private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CambiarContraseña499NA cc = new CambiarContraseña499NA();
 
+            cc.ShowDialog();    
         }
     }
 }

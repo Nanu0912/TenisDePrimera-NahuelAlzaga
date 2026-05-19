@@ -42,7 +42,7 @@
             // 
             this.lblContraseña.AutoSize = true;
             this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblContraseña.Location = new System.Drawing.Point(455, 204);
+            this.lblContraseña.Location = new System.Drawing.Point(446, 202);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(147, 20);
             this.lblContraseña.TabIndex = 7;
@@ -52,7 +52,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblNombre.Location = new System.Drawing.Point(455, 140);
+            this.lblNombre.Location = new System.Drawing.Point(446, 140);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(147, 20);
             this.lblNombre.TabIndex = 6;
@@ -76,7 +76,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(446, 265);
+            this.label1.Location = new System.Drawing.Point(428, 265);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(174, 20);
             this.label1.TabIndex = 9;
