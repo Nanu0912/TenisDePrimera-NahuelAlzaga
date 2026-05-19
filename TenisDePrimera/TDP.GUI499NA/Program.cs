@@ -16,7 +16,7 @@ namespace TDP.GUI499NA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login499NA());
+            Application.Run(new MenuPrincipal499NA());
         }
     }
 }

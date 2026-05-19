@@ -18,7 +18,6 @@ namespace TDP.GUI499NA
         {
             InitializeComponent();
             txtContraseña.PasswordChar = '*';
-            txtContraseña.ShortcutsEnabled = false;
         }
 
         private void Login499NA_Load(object sender, EventArgs e)
