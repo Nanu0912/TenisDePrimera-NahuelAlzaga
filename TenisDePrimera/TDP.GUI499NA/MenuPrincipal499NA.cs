@@ -37,6 +37,20 @@ namespace TDP.GUI499NA
                 // Cerramos por completo este menú principal para que no quede flotando
                 this.Close();
             }
+            AbrirFormularioHijo499NA(new GestionUsuarios499NA());
+        }
+
+
+        private void AbrirFormularioHijo499NA(Form formularioHijo499NA)
+        {
+            // 1. Le asignamos este menú principal como padre MDI
+            formularioHijo499NA.MdiParent = this;
+
+            // 2. Lo centramos o maximizamos para que quede prolijo adentro
+            formularioHijo499NA.WindowState = FormWindowState.Normal;
+
+            // 3. Lo mostramos
+            formularioHijo499NA.Show();
         }
     }
 }

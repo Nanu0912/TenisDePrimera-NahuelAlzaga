@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,21 +33,14 @@ namespace TDP.GUI499NA
             Login499NA pantallaLogin499NA = new Login499NA();
             pantallaLogin499NA.Show();
 
-            this.Close();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            foreach (Form formularioAbierto499NA in Application.OpenForms)
-            {
-                if (formularioAbierto499NA is MenuPrincipal499NA)
-                {
-                    formularioAbierto499NA.Focus();
+            MenuPrincipal499NA mp = new MenuPrincipal499NA();
+            mp.Show();
 
-                    this.Close();
-                    return;
-                }
-            }
+            
         }
     }
 }
