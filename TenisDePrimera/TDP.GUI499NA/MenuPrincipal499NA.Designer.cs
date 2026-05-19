@@ -153,25 +153,26 @@
             // gestionDeUsuariosToolStripMenuItem
             // 
             this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
-            this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
+            this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.gestionDeUsuariosToolStripMenuItem.Text = "Gestion de Usuarios";
+            this.gestionDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestionDeUsuariosToolStripMenuItem_Click);
             // 
             // perfilesYPermisosToolStripMenuItem
             // 
             this.perfilesYPermisosToolStripMenuItem.Name = "perfilesYPermisosToolStripMenuItem";
-            this.perfilesYPermisosToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
+            this.perfilesYPermisosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.perfilesYPermisosToolStripMenuItem.Text = "Perfiles y Permisos";
             // 
             // respaldoToolStripMenuItem
             // 
             this.respaldoToolStripMenuItem.Name = "respaldoToolStripMenuItem";
-            this.respaldoToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
+            this.respaldoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.respaldoToolStripMenuItem.Text = "Respaldo";
             // 
             // bitacoraToolStripMenuItem
             // 
             this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
-            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
+            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.bitacoraToolStripMenuItem.Text = "Bitacora";
             // 
             // usuarioToolStripMenuItem

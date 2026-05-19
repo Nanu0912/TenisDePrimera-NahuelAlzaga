@@ -113,5 +113,54 @@ namespace TDP.DAL499NA
                 }
             }
         }
+
+        public List<UsuarioBE499NA> ListarUsuarios499NA(bool mostrarTodos499NA)
+        {
+            List<UsuarioBE499NA> lista499NA = new List<UsuarioBE499NA>();
+
+            using (SqlConnection conexion499NA = new SqlConnection(cadenaConexion499NA))
+            {
+                using (SqlCommand comando499NA = new SqlCommand("SP_Usuario_Listar", conexion499NA))
+                {
+                    comando499NA.CommandType = CommandType.StoredProcedure;
+                    comando499NA.Parameters.AddWithValue("@MostrarTodos", mostrarTodos499NA);
+
+                    conexion499NA.Open();
+                    using (SqlDataReader lector499NA = comando499NA.ExecuteReader())
+                    {
+                        while (lector499NA.Read())
+                        {
+                            lista499NA.Add(new UsuarioBE499NA
+                            {
+                                Dni499NA = lector499NA["DNI"].ToString(),
+                                Nombre499NA = lector499NA["Nombre"].ToString(),
+                                Apellidos499NA = lector499NA["Apellidos"].ToString(),
+                                NombreUsuario499NA = lector499NA["NombreUsuario"].ToString(),
+                                Rol499NA = lector499NA["NombreRol"].ToString(),
+                                Email499NA = lector499NA["Email"].ToString(),
+                                Bloqueo499NA = Convert.ToBoolean(lector499NA["Bloqueo"]),
+                                Activo499NA = Convert.ToBoolean(lector499NA["Activo"])
+                            });
+                        }
+                    }
+                }
+            }
+            return lista499NA;
+        }
+
+        public void DesbloquearUsuario499NA(string nombreUsuario)
+        {
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion499NA))
+            {
+                using (SqlCommand cmd = new SqlCommand("SP_Usuario_Desbloqueo", conexion))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
+
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

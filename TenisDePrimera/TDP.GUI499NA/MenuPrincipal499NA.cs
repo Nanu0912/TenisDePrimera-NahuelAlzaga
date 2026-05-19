@@ -39,5 +39,12 @@ namespace TDP.GUI499NA
 
             cc.ShowDialog();    
         }
+
+        private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GestionUsuarios499NA gu = new GestionUsuarios499NA();
+
+            gu.ShowDialog();
+        }
     }
 }

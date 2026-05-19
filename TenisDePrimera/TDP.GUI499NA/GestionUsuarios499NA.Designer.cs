@@ -28,15 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgUsuarios = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.rbActivos = new System.Windows.Forms.RadioButton();
             this.rbTodos = new System.Windows.Forms.RadioButton();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -53,32 +47,17 @@
             this.cbUsuarioActivo = new System.Windows.Forms.CheckBox();
             this.btnCrearUsuario = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.btnDesbloquear = new System.Windows.Forms.Button();
             this.btnActivarDesactivar = new System.Windows.Forms.Button();
             this.btnAplicar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.gbNotificaciones = new System.Windows.Forms.GroupBox();
             this.lblMensajeSistema = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgUsuarios)).BeginInit();
+            this.dgUsuarios = new System.Windows.Forms.DataGridView();
+            this.btnDesbloquearUsuario = new System.Windows.Forms.Button();
             this.gbNotificaciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgUsuarios)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgUsuarios
-            // 
-            this.dgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DNI,
-            this.Nombre,
-            this.Apellido,
-            this.NombreUsuario,
-            this.Rol});
-            this.dgUsuarios.Location = new System.Drawing.Point(31, 79);
-            this.dgUsuarios.Name = "dgUsuarios";
-            this.dgUsuarios.RowHeadersWidth = 51;
-            this.dgUsuarios.RowTemplate.Height = 24;
-            this.dgUsuarios.Size = new System.Drawing.Size(867, 279);
-            this.dgUsuarios.TabIndex = 0;
             // 
             // label1
             // 
@@ -115,41 +94,7 @@
             this.rbTodos.TabStop = true;
             this.rbTodos.Text = "Todos";
             this.rbTodos.UseVisualStyleBackColor = true;
-            // 
-            // DNI
-            // 
-            this.DNI.HeaderText = "DNI";
-            this.DNI.MinimumWidth = 6;
-            this.DNI.Name = "DNI";
-            this.DNI.Width = 125;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 6;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 125;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.MinimumWidth = 6;
-            this.Apellido.Name = "Apellido";
-            this.Apellido.Width = 125;
-            // 
-            // NombreUsuario
-            // 
-            this.NombreUsuario.HeaderText = "NombreUsuario";
-            this.NombreUsuario.MinimumWidth = 6;
-            this.NombreUsuario.Name = "NombreUsuario";
-            this.NombreUsuario.Width = 125;
-            // 
-            // Rol
-            // 
-            this.Rol.HeaderText = "Rol";
-            this.Rol.MinimumWidth = 6;
-            this.Rol.Name = "Rol";
-            this.Rol.Width = 125;
+            this.rbTodos.CheckedChanged += new System.EventHandler(this.rbTodos_CheckedChanged);
             // 
             // label2
             // 
@@ -304,6 +249,7 @@
             this.btnCrearUsuario.TabIndex = 23;
             this.btnCrearUsuario.Text = "Crear Usuario";
             this.btnCrearUsuario.UseVisualStyleBackColor = false;
+            this.btnCrearUsuario.Click += new System.EventHandler(this.btnCrearUsuario_Click);
             // 
             // btnModificar
             // 
@@ -319,21 +265,6 @@
             this.btnModificar.TabIndex = 24;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
-            // 
-            // btnDesbloquear
-            // 
-            this.btnDesbloquear.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.btnDesbloquear.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.btnDesbloquear.FlatAppearance.BorderSize = 2;
-            this.btnDesbloquear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDesbloquear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnDesbloquear.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDesbloquear.Location = new System.Drawing.Point(1107, 228);
-            this.btnDesbloquear.Name = "btnDesbloquear";
-            this.btnDesbloquear.Size = new System.Drawing.Size(199, 61);
-            this.btnDesbloquear.TabIndex = 25;
-            this.btnDesbloquear.Text = "Desbloquear";
-            this.btnDesbloquear.UseVisualStyleBackColor = false;
             // 
             // btnActivarDesactivar
             // 
@@ -364,6 +295,7 @@
             this.btnAplicar.TabIndex = 27;
             this.btnAplicar.Text = "Aplicar";
             this.btnAplicar.UseVisualStyleBackColor = false;
+            this.btnAplicar.Click += new System.EventHandler(this.btnAplicar_Click);
             // 
             // btnCancelar
             // 
@@ -416,18 +348,47 @@
             this.lblMensajeSistema.TabIndex = 0;
             this.lblMensajeSistema.Text = "label8";
             // 
+            // dgUsuarios
+            // 
+            this.dgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgUsuarios.Location = new System.Drawing.Point(66, 94);
+            this.dgUsuarios.Name = "dgUsuarios";
+            this.dgUsuarios.RowHeadersWidth = 51;
+            this.dgUsuarios.RowTemplate.Height = 24;
+            this.dgUsuarios.Size = new System.Drawing.Size(895, 262);
+            this.dgUsuarios.TabIndex = 31;
+            this.dgUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUsuarios_CellContentClick_1);
+            this.dgUsuarios.SelectionChanged += new System.EventHandler(this.dgUsuarios_SelectionChanged);
+            // 
+            // btnDesbloquearUsuario
+            // 
+            this.btnDesbloquearUsuario.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnDesbloquearUsuario.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnDesbloquearUsuario.FlatAppearance.BorderSize = 2;
+            this.btnDesbloquearUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDesbloquearUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnDesbloquearUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnDesbloquearUsuario.Location = new System.Drawing.Point(1107, 228);
+            this.btnDesbloquearUsuario.Name = "btnDesbloquearUsuario";
+            this.btnDesbloquearUsuario.Size = new System.Drawing.Size(199, 61);
+            this.btnDesbloquearUsuario.TabIndex = 25;
+            this.btnDesbloquearUsuario.Text = "Desbloquear";
+            this.btnDesbloquearUsuario.UseVisualStyleBackColor = false;
+            this.btnDesbloquearUsuario.Click += new System.EventHandler(this.btnDesbloquear_Click);
+            // 
             // GestionUsuarios499NA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1342, 653);
+            this.Controls.Add(this.dgUsuarios);
             this.Controls.Add(this.gbNotificaciones);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAplicar);
             this.Controls.Add(this.btnActivarDesactivar);
-            this.Controls.Add(this.btnDesbloquear);
+            this.Controls.Add(this.btnDesbloquearUsuario);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnCrearUsuario);
             this.Controls.Add(this.cbUsuarioActivo);
@@ -447,27 +408,19 @@
             this.Controls.Add(this.rbTodos);
             this.Controls.Add(this.rbActivos);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgUsuarios);
             this.Name = "GestionUsuarios499NA";
             this.Text = "GestionUsuarios499NA";
             this.Load += new System.EventHandler(this.GestionUsuarios499NA_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgUsuarios)).EndInit();
             this.gbNotificaciones.ResumeLayout(false);
             this.gbNotificaciones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgUsuarios;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rol;
         private System.Windows.Forms.RadioButton rbActivos;
         private System.Windows.Forms.RadioButton rbTodos;
         private System.Windows.Forms.Label label2;
@@ -486,12 +439,13 @@
         private System.Windows.Forms.CheckBox cbUsuarioActivo;
         private System.Windows.Forms.Button btnCrearUsuario;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnDesbloquear;
         private System.Windows.Forms.Button btnActivarDesactivar;
         private System.Windows.Forms.Button btnAplicar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.GroupBox gbNotificaciones;
         private System.Windows.Forms.Label lblMensajeSistema;
+        private System.Windows.Forms.DataGridView dgUsuarios;
+        private System.Windows.Forms.Button btnDesbloquearUsuario;
     }
 }
