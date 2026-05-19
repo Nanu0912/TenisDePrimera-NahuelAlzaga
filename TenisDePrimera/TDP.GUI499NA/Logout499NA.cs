@@ -26,6 +26,15 @@ namespace TDP.GUI499NA
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            if (Servicios499NA.SessionManager499NA.Instancia499NA.UsuarioLogueado499NA == null)
+            {
+                
+                MessageBox.Show("No se puede cerrar sesión porque no hay ninguna sesión activa en el sistema.",
+                                "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
+                Application.Exit();
+                return;   
+            }
             SessionManager499NA.Instancia499NA.CerrarSesion499NA();
 
             MessageBox.Show("Sesión finalizada correctamente.", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -97,5 +97,21 @@ namespace TDP.DAL499NA
                 }
             }
         }
+
+        public void ModificarContraseña499NA(string nombreUsuario499NA, string nuevaClaveHasheada499NA)
+        {
+            using (SqlConnection conexion499NA = new SqlConnection(cadenaConexion499NA))
+            {
+                using (SqlCommand comando499NA = new SqlCommand("SP_Usuario_ModificarContraseña", conexion499NA))
+                {
+                    comando499NA.CommandType = CommandType.StoredProcedure;
+                    comando499NA.Parameters.AddWithValue("@NombreUsuario", nombreUsuario499NA);
+                    comando499NA.Parameters.AddWithValue("@NuevaContraseña", nuevaClaveHasheada499NA);
+
+                    conexion499NA.Open();
+                    comando499NA.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

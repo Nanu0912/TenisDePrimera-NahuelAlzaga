@@ -42,7 +42,7 @@
             // 
             this.lblContraseña.AutoSize = true;
             this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblContraseña.Location = new System.Drawing.Point(416, 252);
+            this.lblContraseña.Location = new System.Drawing.Point(455, 204);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(147, 20);
             this.lblContraseña.TabIndex = 7;
@@ -52,7 +52,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblNombre.Location = new System.Drawing.Point(416, 188);
+            this.lblNombre.Location = new System.Drawing.Point(455, 140);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(147, 20);
             this.lblNombre.TabIndex = 6;
@@ -60,14 +60,14 @@
             // 
             // txtContraseñaNueva
             // 
-            this.txtContraseñaNueva.Location = new System.Drawing.Point(597, 250);
+            this.txtContraseñaNueva.Location = new System.Drawing.Point(636, 202);
             this.txtContraseñaNueva.Name = "txtContraseñaNueva";
             this.txtContraseñaNueva.Size = new System.Drawing.Size(250, 22);
             this.txtContraseñaNueva.TabIndex = 5;
             // 
             // txtContraseñaActual
             // 
-            this.txtContraseñaActual.Location = new System.Drawing.Point(597, 186);
+            this.txtContraseñaActual.Location = new System.Drawing.Point(636, 138);
             this.txtContraseñaActual.Name = "txtContraseñaActual";
             this.txtContraseñaActual.Size = new System.Drawing.Size(250, 22);
             this.txtContraseñaActual.TabIndex = 4;
@@ -76,7 +76,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(407, 313);
+            this.label1.Location = new System.Drawing.Point(446, 265);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(174, 20);
             this.label1.TabIndex = 9;
@@ -84,7 +84,7 @@
             // 
             // txtConfirmarContraseña
             // 
-            this.txtConfirmarContraseña.Location = new System.Drawing.Point(597, 311);
+            this.txtConfirmarContraseña.Location = new System.Drawing.Point(636, 263);
             this.txtConfirmarContraseña.Name = "txtConfirmarContraseña";
             this.txtConfirmarContraseña.Size = new System.Drawing.Size(250, 22);
             this.txtConfirmarContraseña.TabIndex = 8;
@@ -94,24 +94,26 @@
             this.btnConfirmar.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.8F);
-            this.btnConfirmar.Location = new System.Drawing.Point(572, 380);
+            this.btnConfirmar.Location = new System.Drawing.Point(450, 332);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(300, 42);
+            this.btnConfirmar.Size = new System.Drawing.Size(461, 42);
             this.btnConfirmar.TabIndex = 10;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // btnVolver
             // 
             this.btnVolver.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.8F);
-            this.btnVolver.Location = new System.Drawing.Point(572, 440);
+            this.btnVolver.Location = new System.Drawing.Point(450, 392);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(300, 42);
+            this.btnVolver.Size = new System.Drawing.Size(461, 42);
             this.btnVolver.TabIndex = 11;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // CambiarContraseña499NA
             // 

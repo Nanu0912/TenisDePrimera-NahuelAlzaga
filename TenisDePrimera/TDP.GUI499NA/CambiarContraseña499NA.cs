@@ -16,5 +16,35 @@ namespace TDP.GUI499NA
         {
             InitializeComponent();
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal499NA mp = new MenuPrincipal499NA();
+            mp.Show();
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string usuarioActual499NA = Servicios499NA.SessionManager499NA.Instancia499NA.UsuarioLogueado499NA.NombreUsuario499NA;
+
+                BLL499NA.UsuariosBLL499NA usuariosBLL499NA = new BLL499NA.UsuariosBLL499NA();
+
+                usuariosBLL499NA.CambiarContraseña499NA(
+                    usuarioActual499NA,
+                    txtContraseñaActual.Text,
+                    txtContraseñaNueva.Text,
+                    txtConfirmarContraseña.Text
+                );
+
+                MessageBox.Show("Contraseña modificada con éxito.", "Excelente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close(); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
