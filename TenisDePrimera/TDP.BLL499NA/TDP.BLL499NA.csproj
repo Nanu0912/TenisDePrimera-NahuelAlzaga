@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuariosBLL499NA.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TDP.BE499NA\TDP.BE499NA.csproj">

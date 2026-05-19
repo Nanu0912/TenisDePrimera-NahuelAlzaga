@@ -21,5 +21,15 @@ namespace TDP.GUI499NA
         {
 
         }
+
+        private void gbNotificaciones_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbActivos_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
