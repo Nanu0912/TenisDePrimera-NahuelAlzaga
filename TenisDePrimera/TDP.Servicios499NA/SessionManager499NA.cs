@@ -26,11 +26,11 @@ namespace TDP.Servicios499NA
                 return instancia499NA;
             }
         }
-        public void IniciarSesion499NA(UsuarioBE499NA usuario499NA)
+        public void IniciarSesion499NA(UsuarioBE499NA usuario)
         {
             if (UsuarioLogueado499NA == null)
             {
-                UsuarioLogueado499NA = usuario499NA;
+                UsuarioLogueado499NA = usuario;
             }
             else
             {
