@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TDP.BE499NA;
 using TDP.DAL499NA;
 using TDP.Servicios499NA;
 
@@ -11,7 +10,7 @@ namespace TDP.BLL499NA
 {
     public class UsuariosBLL499NA
     {
-        public void CrearUsuario499NA(UsuarioBE499NA usuarioNuevo, string clavePlana)
+        public void CrearUsuario499NA(UsuarioServicios499NA usuarioNuevo, string clavePlana)
         {
             if (string.IsNullOrEmpty(usuarioNuevo.Dni499NA) || string.IsNullOrEmpty(usuarioNuevo.NombreUsuario499NA))
             {
@@ -25,7 +24,7 @@ namespace TDP.BLL499NA
         
         public bool ValidarLogin499NA(string usuarioLogin, string clavePlana)
         {
-            UsuarioBE499NA usuarioBD = UsuariosDAL499NA.Instancia499NA.BuscarPorNombre499NA(usuarioLogin);
+            UsuarioServicios499NA usuarioBD = UsuariosDAL499NA.Instancia499NA.BuscarPorNombre499NA(usuarioLogin);
 
             if (usuarioBD == null)
             {
@@ -64,7 +63,7 @@ namespace TDP.BLL499NA
                 throw new Exception("La nueva contraseña y su confirmación no coinciden.");
             }
 
-            UsuarioBE499NA usuarioBD = UsuariosDAL499NA.Instancia499NA.BuscarPorNombre499NA(nombreUsuario);
+            UsuarioServicios499NA usuarioBD = UsuariosDAL499NA.Instancia499NA.BuscarPorNombre499NA(nombreUsuario);
             if (usuarioBD == null)
             {
                 throw new Exception("Error crítico: El usuario no existe.");
@@ -80,7 +79,7 @@ namespace TDP.BLL499NA
             UsuariosDAL499NA.Instancia499NA.ModificarContraseña499NA(nombreUsuario, hashNueva);
         }
 
-        public List<UsuarioBE499NA> ListarUsuarios499NA(bool mostrarTodos)
+        public List<UsuarioServicios499NA> ListarUsuarios499NA(bool mostrarTodos)
         {
             return UsuariosDAL499NA.Instancia499NA.ListarUsuarios499NA(mostrarTodos);
         }

@@ -8,8 +8,8 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TDP.BE499NA;
 using TDP.BLL499NA;
+using TDP.Servicios499NA;
 
 namespace TDP.GUI499NA
 {
@@ -56,7 +56,7 @@ namespace TDP.GUI499NA
             try
             {
                 bool verTodos = rbTodos.Checked;
-                List<UsuarioBE499NA> usuarios = usuariosBLL499NA.ListarUsuarios499NA(verTodos);
+                List<UsuarioServicios499NA> usuarios = usuariosBLL499NA.ListarUsuarios499NA(verTodos);
 
                 dgUsuarios.DataSource = null;
                 dgUsuarios.DataSource = usuarios;
@@ -101,7 +101,7 @@ namespace TDP.GUI499NA
 
                     string contraseña = (txtNombre.Text.Trim() + txtDNI.Text.Trim());
 
-                    UsuarioBE499NA nuevo = new UsuarioBE499NA
+                    UsuarioServicios499NA nuevo = new UsuarioServicios499NA
                     {
                         Dni499NA = txtDNI.Text.Trim(),
                         Nombre499NA = txtNombre.Text.Trim(),
@@ -175,7 +175,7 @@ namespace TDP.GUI499NA
         {
             if (dgUsuarios.CurrentRow != null && accionActual499NA == "")
             {
-                UsuarioBE499NA seleccionado = (UsuarioBE499NA)dgUsuarios.CurrentRow.DataBoundItem;
+                UsuarioServicios499NA seleccionado = (UsuarioServicios499NA)dgUsuarios.CurrentRow.DataBoundItem;
 
                 txtDNI.Text = seleccionado.Dni499NA;
                 txtNombre.Text = seleccionado.Nombre499NA;

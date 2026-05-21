@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TDP.BE499NA
+namespace TDP.Servicios499NA
 {
-    public class BitacoraBE499NA
+    public class BitacoraServicios499NA
     {
         public string NombreUsuario499NA { get; set; }
-        public string Nombre499NA { get; set; } 
-        public string Apellido499NA { get; set; } 
+        public string Nombre499NA { get; set; }
+        public string Apellido499NA { get; set; }
         public DateTime Fecha499NA { get; set; }
         public string Hora499NA { get; set; }
         public string Modulo499NA { get; set; }

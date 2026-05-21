@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TDP.BE499NA;
+using TDP.Servicios499NA;
 
 namespace TDP.DAL499NA
 {
@@ -27,9 +27,9 @@ namespace TDP.DAL499NA
             }
         }
 
-        public UsuarioBE499NA BuscarPorNombre499NA(string nombreUsuario499NA)
+        public UsuarioServicios499NA BuscarPorNombre499NA(string nombreUsuario499NA)
         {
-            UsuarioBE499NA usuarioEncontrado499NA = null;
+            UsuarioServicios499NA usuarioEncontrado499NA = null;
 
             using (SqlConnection conexion499NA = new SqlConnection(cadenaConexion499NA))
             {
@@ -43,7 +43,7 @@ namespace TDP.DAL499NA
                     {
                         if (lector499NA.Read())
                         {
-                            usuarioEncontrado499NA = new UsuarioBE499NA
+                            usuarioEncontrado499NA = new UsuarioServicios499NA
                             {
                                 Dni499NA = lector499NA["DNI"].ToString(),
                                 Apellidos499NA = lector499NA["Apellidos"].ToString(),
@@ -63,7 +63,7 @@ namespace TDP.DAL499NA
             return usuarioEncontrado499NA;
         }
 
-        public void InsertarUsuario499NA(UsuarioBE499NA nuevoUsuario499NA)
+        public void InsertarUsuario499NA(UsuarioServicios499NA nuevoUsuario499NA)
         {
             using (SqlConnection conexion499NA = new SqlConnection(cadenaConexion499NA))
             {
@@ -114,9 +114,9 @@ namespace TDP.DAL499NA
             }
         }
 
-        public List<UsuarioBE499NA> ListarUsuarios499NA(bool mostrarTodos)
+        public List<UsuarioServicios499NA> ListarUsuarios499NA(bool mostrarTodos)
         {
-            List<UsuarioBE499NA> lista = new List<UsuarioBE499NA>();
+            List<UsuarioServicios499NA> lista = new List<UsuarioServicios499NA>();
 
             using (SqlConnection conexion = new SqlConnection(cadenaConexion499NA))
             {
@@ -130,7 +130,7 @@ namespace TDP.DAL499NA
                     {
                         while (r.Read())
                         {
-                            lista.Add(new UsuarioBE499NA
+                            lista.Add(new UsuarioServicios499NA
                             {
                                 Dni499NA = r["DNI"].ToString(),
                                 Nombre499NA = r["Nombre"].ToString(),

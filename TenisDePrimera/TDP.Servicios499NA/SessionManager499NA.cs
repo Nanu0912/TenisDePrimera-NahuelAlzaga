@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TDP.BE499NA;
 
 namespace TDP.Servicios499NA
 {
@@ -11,7 +10,7 @@ namespace TDP.Servicios499NA
     {
         private static SessionManager499NA instancia499NA = null;
 
-        public UsuarioBE499NA UsuarioLogueado499NA { get; private set; }
+        public UsuarioServicios499NA UsuarioLogueado499NA { get; private set; }
 
         private SessionManager499NA() { }
 
@@ -26,7 +25,7 @@ namespace TDP.Servicios499NA
                 return instancia499NA;
             }
         }
-        public void IniciarSesion499NA(UsuarioBE499NA usuario)
+        public void IniciarSesion499NA(UsuarioServicios499NA usuario)
         {
             if (UsuarioLogueado499NA == null)
             {

@@ -31,35 +31,43 @@ namespace TDP.GUI499NA
 
         private void btnAplicar_Click(object sender, EventArgs e)
         {
-            string nombre = txtNombre.Text;
-            string apellido = txtApellido.Text;
-            string usuario = txtNombreUsuario.Text;
-            string modulo = txtModulo.Text;
+            try
+            {
+                BLL499NA.BitacoraBLL499NA bll = new BLL499NA.BitacoraBLL499NA();
 
-            int? criticidad = string.IsNullOrEmpty(txtCriticidad.Text) ? (int?)null : int.Parse(txtCriticidad.Text);
+                // Extraemos los textos y si están vacíos los convertimos en null
+                string nombre = string.IsNullOrEmpty(txtNombre.Text.Trim()) ? null : txtNombre.Text.Trim();
+                string apellido = string.IsNullOrEmpty(txtApellido.Text.Trim()) ? null : txtApellido.Text.Trim();
+                string usuario = string.IsNullOrEmpty(txtNombreUsuario.Text.Trim()) ? null : txtNombreUsuario.Text.Trim();
+                string modulo = string.IsNullOrEmpty(txtModulo.Text.Trim()) ? null : txtModulo.Text.Trim();
 
-            // CORRECCIÓN: Se usa .Value para los DateTimePicker de escritorio
-            DateTime inicio = dtFechaInicio.Value;
-            DateTime fin = dtFechaFin.Value;
+                // Manejo de la criticidad (si maneja un combobox o txt)
+                int? criticidad = null;
+                if (!string.IsNullOrEmpty(txtCriticidad.Text) && txtCriticidad.Text != "Todos")
+                {
+                    criticidad = Convert.ToInt32(txtCriticidad.Text);
+                }
 
-            // Ahora que bllBitacora está declarada arriba, esto compila perfecto
-            dgBitacora.DataSource = bllBitacora.ConsultarBitacora499NA(nombre, apellido, usuario, modulo, criticidad, inicio, fin);
-        }
+                // CORRECCIÓN DE FECHAS: Forzamos a que barra todo el rango horario del día
+                DateTime fechaInicio = dtFechaInicio.Value.Date; // 00:00:00
+                DateTime fechaFin = dtFechaFin.Value.Date.AddDays(1).AddTicks(-1); // 23:59:59
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            txtNombre.Text = "";
-            txtApellido.Text = "";
-            txtNombreUsuario.Text = "";
-            txtModulo.Text = "";
-            txtEvento.Text = "";
-            txtCriticidad.Text = "";
+                // Llamamos a la BLL
+                var listaBitacora = bll.ConsultarBitacora499NA(nombre, apellido, usuario, modulo, criticidad, fechaInicio, fechaFin);
 
-            // CORRECCIÓN: Se asigna el valor a la propiedad .Value del control
-            dtFechaInicio.Value = DateTime.Now.AddMonths(-1);
-            dtFechaFin.Value = DateTime.Now;
+                // Asignamos el resultado al DataGridView
+                dgBitacora.DataSource = null; // Limpiamos por seguridad
+                dgBitacora.DataSource = listaBitacora;
 
-            dgBitacora.DataSource = null;
+                if (listaBitacora.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron registros con los filtros seleccionados.", "Búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al consultar la bitácora: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
