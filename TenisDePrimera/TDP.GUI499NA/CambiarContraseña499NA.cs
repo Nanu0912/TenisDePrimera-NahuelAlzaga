@@ -27,19 +27,29 @@ namespace TDP.GUI499NA
         {
             try
             {
-                string usuarioActual499NA = Servicios499NA.SessionManager499NA.Instancia499NA.UsuarioLogueado499NA.NombreUsuario499NA;
+                // 1. Guardamos el usuario actual en una variable corta
+                string usrAct = Servicios499NA.SessionManager499NA.Instancia499NA.UsuarioLogueado499NA.NombreUsuario499NA;
 
-                BLL499NA.UsuariosBLL499NA usuariosBLL499NA = new BLL499NA.UsuariosBLL499NA();
+                BLL499NA.UsuariosBLL499NA usrBLL = new BLL499NA.UsuariosBLL499NA();
 
-                usuariosBLL499NA.CambiarContraseña499NA(
-                    usuarioActual499NA,
+                // 2. Ejecutamos tu lógica nativa de cambio de clave
+                usrBLL.CambiarContraseña499NA(
+                    usrAct,
                     txtContraseñaActual.Text,
                     txtContraseñaNueva.Text,
                     txtConfirmarContraseña.Text
                 );
 
+                // 3. LLAMADA LIMPIA: Registramos el éxito pasándole la variable segura y criticidad 2
+                try
+                {
+                    BLL499NA.BitacoraBLL499NA bll = new BLL499NA.BitacoraBLL499NA();
+                    bll.RegistrarCambioContraseña499NA(usrAct, 2);
+                }
+                catch { }
+
                 MessageBox.Show("Contraseña modificada con éxito.", "Excelente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); 
+                this.Close();
             }
             catch (Exception ex)
             {

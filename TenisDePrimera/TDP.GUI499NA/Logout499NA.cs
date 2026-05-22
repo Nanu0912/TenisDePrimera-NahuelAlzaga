@@ -28,13 +28,27 @@ namespace TDP.GUI499NA
         {
             if (Servicios499NA.SessionManager499NA.Instancia499NA.UsuarioLogueado499NA == null)
             {
-                
-                MessageBox.Show("No se puede cerrar sesión porque no hay ninguna sesión activa en el sistema.",
-                                "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                
+                MessageBox.Show("No hay ninguna sesión activa.", "Atención");
                 Application.Exit();
-                return;   
+                return;
             }
+
+            try
+            {
+                // 1. INSTANCIAMOS LA BLL
+                BLL499NA.BitacoraBLL499NA bll = new BLL499NA.BitacoraBLL499NA();
+
+                // 2. REGISTRAMOS EL EVENTO PRIMERO
+                // Como la sesión todavía NO se cerró, esa línea de la BLL va a leer 
+                // perfecto el usuario desde el SessionManager de forma automática.
+                bll.RegistrarEvento("Seguridad", "Cierre de Sesión Exitoso", 1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar en bitácora: " + ex.Message);
+            }
+
+            // 3. RECIÉN AHORA DESTRUIMOS LA SESIÓN EN MEMORIA
             SessionManager499NA.Instancia499NA.CerrarSesion499NA();
 
             MessageBox.Show("Sesión finalizada correctamente.", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information);

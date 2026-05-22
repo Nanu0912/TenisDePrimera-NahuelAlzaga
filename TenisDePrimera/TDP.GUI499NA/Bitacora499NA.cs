@@ -20,7 +20,7 @@ namespace TDP.GUI499NA
             InitializeComponent();
         }
 
-        BitacoraBLL499NA bllBitacora = new BitacoraBLL499NA();
+        
 
 
 
@@ -35,38 +35,28 @@ namespace TDP.GUI499NA
             {
                 BLL499NA.BitacoraBLL499NA bll = new BLL499NA.BitacoraBLL499NA();
 
-                // Extraemos los textos y si están vacíos los convertimos en null
-                string nombre = string.IsNullOrEmpty(txtNombre.Text.Trim()) ? null : txtNombre.Text.Trim();
-                string apellido = string.IsNullOrEmpty(txtApellido.Text.Trim()) ? null : txtApellido.Text.Trim();
-                string usuario = string.IsNullOrEmpty(txtNombreUsuario.Text.Trim()) ? null : txtNombreUsuario.Text.Trim();
-                string modulo = string.IsNullOrEmpty(txtModulo.Text.Trim()) ? null : txtModulo.Text.Trim();
+                string usr = string.IsNullOrEmpty(txtNombreUsuario.Text.Trim()) ? null : txtNombreUsuario.Text.Trim();
+                string mod = string.IsNullOrEmpty(txtModulo.Text.Trim()) ? null : txtModulo.Text.Trim();
 
-                // Manejo de la criticidad (si maneja un combobox o txt)
-                int? criticidad = null;
-                if (!string.IsNullOrEmpty(txtCriticidad.Text) && txtCriticidad.Text != "Todos")
+                int? crit = null;
+                if (!string.IsNullOrEmpty(txtCriticidad.Text.Trim()))
                 {
-                    criticidad = Convert.ToInt32(txtCriticidad.Text);
+                    crit = Convert.ToInt32(txtCriticidad.Text.Trim());
                 }
 
-                // CORRECCIÓN DE FECHAS: Forzamos a que barra todo el rango horario del día
-                DateTime fechaInicio = dtFechaInicio.Value.Date; // 00:00:00
-                DateTime fechaFin = dtFechaFin.Value.Date.AddDays(1).AddTicks(-1); // 23:59:59
+                DateTime ini = dtFechaInicio.Value.Date;
+                DateTime fin = dtFechaFin.Value.Date.AddDays(1).AddTicks(-1);
 
-                // Llamamos a la BLL
-                var listaBitacora = bll.ConsultarBitacora499NA(nombre, apellido, usuario, modulo, criticidad, fechaInicio, fechaFin);
+                // LLAMADA SANA: Sin nombre ni apellido
+                var lista = bll.ConsultarBitacora499NA(usr, mod, crit, ini, fin);
 
-                // Asignamos el resultado al DataGridView
-                dgBitacora.DataSource = null; // Limpiamos por seguridad
-                dgBitacora.DataSource = listaBitacora;
-
-                if (listaBitacora.Count == 0)
-                {
-                    MessageBox.Show("No se encontraron registros con los filtros seleccionados.", "Búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                dgBitacora.DataSource = null;
+                dgBitacora.AutoGenerateColumns = false; // Evita que dibuje columnas duplicadas
+                dgBitacora.DataSource = lista;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al consultar la bitácora: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al filtrar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -81,7 +71,32 @@ namespace TDP.GUI499NA
             
         }
 
-        
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtNombreUsuario.Clear();
+                txtModulo.Clear();
+                txtCriticidad.Clear();
 
+                dtFechaInicio.Value = DateTime.Now;
+                dtFechaFin.Value = DateTime.Now;
+
+                BLL499NA.BitacoraBLL499NA bll = new BLL499NA.BitacoraBLL499NA();
+
+                DateTime ini = dtFechaInicio.Value.Date;
+                DateTime fin = dtFechaFin.Value.Date.AddDays(1).AddTicks(-1);
+
+                var listaOriginal = bll.ConsultarBitacora499NA(null, null, null, ini, fin);
+
+                dgBitacora.DataSource = null;
+                dgBitacora.AutoGenerateColumns = false;
+                dgBitacora.DataSource = listaOriginal;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al limpiar la pantalla: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -33,11 +33,7 @@
             this.btnAplicar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.dgBitacora = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtModulo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,6 +46,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.dtFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.dtFechaFin = new System.Windows.Forms.DateTimePicker();
+            this.NombreUsuario499NA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha499NA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora499NA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modulo499NA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Evento499NA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Criticidad499NA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgBitacora)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,12 +74,13 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnLimpiar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnLimpiar.Location = new System.Drawing.Point(117, 537);
+            this.btnLimpiar.Location = new System.Drawing.Point(123, 522);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(199, 61);
             this.btnLimpiar.TabIndex = 5;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnAplicar
             // 
@@ -87,7 +90,7 @@
             this.btnAplicar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAplicar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnAplicar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAplicar.Location = new System.Drawing.Point(428, 537);
+            this.btnAplicar.Location = new System.Drawing.Point(434, 522);
             this.btnAplicar.Name = "btnAplicar";
             this.btnAplicar.Size = new System.Drawing.Size(199, 61);
             this.btnAplicar.TabIndex = 6;
@@ -103,7 +106,7 @@
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnImprimir.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnImprimir.Location = new System.Drawing.Point(767, 537);
+            this.btnImprimir.Location = new System.Drawing.Point(773, 522);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(199, 61);
             this.btnImprimir.TabIndex = 7;
@@ -127,52 +130,27 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(428, 341);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(182, 22);
-            this.txtNombre.TabIndex = 9;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(344, 341);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 16);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Nombre";
-            // 
             // dgBitacora
             // 
             this.dgBitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgBitacora.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NombreUsuario499NA,
+            this.Fecha499NA,
+            this.Hora499NA,
+            this.Modulo499NA,
+            this.Evento499NA,
+            this.Criticidad499NA});
             this.dgBitacora.Location = new System.Drawing.Point(39, 109);
             this.dgBitacora.Name = "dgBitacora";
             this.dgBitacora.RowHeadersWidth = 51;
             this.dgBitacora.RowTemplate.Height = 24;
-            this.dgBitacora.Size = new System.Drawing.Size(1182, 215);
+            this.dgBitacora.Size = new System.Drawing.Size(1182, 249);
             this.dgBitacora.TabIndex = 11;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(647, 341);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 16);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Apellido";
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(731, 341);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(182, 22);
-            this.txtApellido.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(129, 465);
+            this.label4.Location = new System.Drawing.Point(135, 450);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 17;
@@ -180,7 +158,7 @@
             // 
             // txtModulo
             // 
-            this.txtModulo.Location = new System.Drawing.Point(219, 459);
+            this.txtModulo.Location = new System.Drawing.Point(225, 444);
             this.txtModulo.Name = "txtModulo";
             this.txtModulo.Size = new System.Drawing.Size(182, 22);
             this.txtModulo.TabIndex = 16;
@@ -188,7 +166,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(67, 401);
+            this.label5.Location = new System.Drawing.Point(73, 386);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 16);
             this.label5.TabIndex = 15;
@@ -196,7 +174,7 @@
             // 
             // txtNombreUsuario
             // 
-            this.txtNombreUsuario.Location = new System.Drawing.Point(219, 395);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(225, 380);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(182, 22);
             this.txtNombreUsuario.TabIndex = 14;
@@ -204,7 +182,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(741, 465);
+            this.label6.Location = new System.Drawing.Point(747, 450);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 16);
             this.label6.TabIndex = 21;
@@ -212,7 +190,7 @@
             // 
             // txtCriticidad
             // 
-            this.txtCriticidad.Location = new System.Drawing.Point(834, 459);
+            this.txtCriticidad.Location = new System.Drawing.Point(840, 444);
             this.txtCriticidad.Name = "txtCriticidad";
             this.txtCriticidad.Size = new System.Drawing.Size(182, 22);
             this.txtCriticidad.TabIndex = 20;
@@ -220,7 +198,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(439, 465);
+            this.label7.Location = new System.Drawing.Point(445, 450);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 16);
             this.label7.TabIndex = 19;
@@ -228,7 +206,7 @@
             // 
             // txtEvento
             // 
-            this.txtEvento.Location = new System.Drawing.Point(537, 459);
+            this.txtEvento.Location = new System.Drawing.Point(543, 444);
             this.txtEvento.Name = "txtEvento";
             this.txtEvento.Size = new System.Drawing.Size(182, 22);
             this.txtEvento.TabIndex = 18;
@@ -236,7 +214,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(425, 401);
+            this.label8.Location = new System.Drawing.Point(431, 386);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 16);
             this.label8.TabIndex = 23;
@@ -245,7 +223,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(741, 401);
+            this.label9.Location = new System.Drawing.Point(747, 386);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(66, 16);
             this.label9.TabIndex = 25;
@@ -253,17 +231,65 @@
             // 
             // dtFechaInicio
             // 
-            this.dtFechaInicio.Location = new System.Drawing.Point(537, 396);
+            this.dtFechaInicio.Location = new System.Drawing.Point(543, 381);
             this.dtFechaInicio.Name = "dtFechaInicio";
             this.dtFechaInicio.Size = new System.Drawing.Size(182, 22);
             this.dtFechaInicio.TabIndex = 26;
             // 
             // dtFechaFin
             // 
-            this.dtFechaFin.Location = new System.Drawing.Point(834, 396);
+            this.dtFechaFin.Location = new System.Drawing.Point(840, 381);
             this.dtFechaFin.Name = "dtFechaFin";
             this.dtFechaFin.Size = new System.Drawing.Size(182, 22);
             this.dtFechaFin.TabIndex = 27;
+            // 
+            // NombreUsuario499NA
+            // 
+            this.NombreUsuario499NA.DataPropertyName = "NombreUsuario499NA";
+            this.NombreUsuario499NA.HeaderText = "Nombre de Usuario";
+            this.NombreUsuario499NA.MinimumWidth = 6;
+            this.NombreUsuario499NA.Name = "NombreUsuario499NA";
+            this.NombreUsuario499NA.Width = 125;
+            // 
+            // Fecha499NA
+            // 
+            this.Fecha499NA.DataPropertyName = "Fecha499NA";
+            this.Fecha499NA.HeaderText = "Fecha";
+            this.Fecha499NA.MinimumWidth = 6;
+            this.Fecha499NA.Name = "Fecha499NA";
+            this.Fecha499NA.Width = 125;
+            // 
+            // Hora499NA
+            // 
+            this.Hora499NA.DataPropertyName = "Hora499NA";
+            this.Hora499NA.HeaderText = "Hora";
+            this.Hora499NA.MinimumWidth = 6;
+            this.Hora499NA.Name = "Hora499NA";
+            this.Hora499NA.Width = 125;
+            // 
+            // Modulo499NA
+            // 
+            this.Modulo499NA.DataPropertyName = "Modulo499NA";
+            this.Modulo499NA.HeaderText = "Modulo";
+            this.Modulo499NA.MinimumWidth = 6;
+            this.Modulo499NA.Name = "Modulo499NA";
+            this.Modulo499NA.Width = 125;
+            // 
+            // Evento499NA
+            // 
+            this.Evento499NA.DataPropertyName = "Evento499NA";
+            this.Evento499NA.HeaderText = "Evento";
+            this.Evento499NA.MinimumWidth = 6;
+            this.Evento499NA.Name = "Evento499NA";
+            this.Evento499NA.Width = 125;
+            // 
+            // Criticidad499NA
+            // 
+            this.Criticidad499NA.DataPropertyName = "Criticidad499NA";
+            this.Criticidad499NA.HeaderText = "Criticidad";
+            this.Criticidad499NA.MinimumWidth = 6;
+            this.Criticidad499NA.Name = "Criticidad499NA";
+            this.Criticidad499NA.Width = 125;
             // 
             // Bitacora499NA
             // 
@@ -283,11 +309,7 @@
             this.Controls.Add(this.txtModulo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtNombreUsuario);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.dgBitacora);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnAplicar);
@@ -308,11 +330,7 @@
         private System.Windows.Forms.Button btnAplicar;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgBitacora;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtModulo;
         private System.Windows.Forms.Label label5;
@@ -325,5 +343,11 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dtFechaInicio;
         private System.Windows.Forms.DateTimePicker dtFechaFin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreUsuario499NA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha499NA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hora499NA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Modulo499NA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Evento499NA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Criticidad499NA;
     }
 }

@@ -10,49 +10,77 @@ namespace TDP.BLL499NA
 {
     public class BitacoraBLL499NA
     {
-        public void RegistrarEvento(string moduloOrigen, string eventoOrigen, int criticidadOrigen)
+        public void RegistrarEvento(string mod, string eve, int crit)
         {
-            BitacoraDAL499NA bitacoraDAL = new BitacoraDAL499NA();
-            BitacoraServicios499NA infoAuditoria = new BitacoraServicios499NA();
+            BitacoraDAL499NA dal = new BitacoraDAL499NA();
+            BitacoraServicios499NA info = new BitacoraServicios499NA();
 
-            UsuarioServicios499NA usuarioSesion = SessionManager499NA.Instancia499NA.UsuarioLogueado499NA;
+            var usrSesion = SessionManager499NA.Instancia499NA.UsuarioLogueado499NA;
 
-            if (usuarioSesion != null)
-            {
-                infoAuditoria.NombreUsuario499NA = usuarioSesion.NombreUsuario499NA;
-                infoAuditoria.Modulo499NA = ClasificaAccion499NA(moduloOrigen);
-                infoAuditoria.Evento499NA = DefineAccion499NA(eventoOrigen);
-                infoAuditoria.Criticidad499NA = AsignaGravedad499NA(criticidadOrigen);
-            }
-            else
-            {
-                infoAuditoria.NombreUsuario499NA = usuarioSesion.NombreUsuario499NA;
-                infoAuditoria.Modulo499NA = ClasificaAccion499NA(moduloOrigen);
-                infoAuditoria.Evento499NA = DefineAccion499NA(eventoOrigen);
-                infoAuditoria.Criticidad499NA = 3;
-            }
+            info.NombreUsuario499NA = (usrSesion != null) ? usrSesion.NombreUsuario499NA : "ANÓNIMO/SISTEMA";
+            info.Modulo499NA = mod;
+            info.Evento499NA = eve;
+            info.Criticidad499NA = crit;
+            info.Fecha499NA = DateTime.Now;
+            info.Hora499NA = DateTime.Now.ToString("HH:mm:ss");
 
-            // Inyectamos de forma automática la fecha y hora actual del sistema antes de mandar a guardar
-            infoAuditoria.Fecha499NA = DateTime.Now;
-            infoAuditoria.Hora499NA = DateTime.Now.ToString("HH:mm:ss");
-
-            bitacoraDAL.InsertarBitacora499NA(infoAuditoria);
+            dal.InsertarBitacora499NA(info);
         }
-        public void RegistrarEventoConUsuarioManual499NA(string moduloOrigen, string eventoOrigen, int criticidadOrigen, string usuarioManual)
+
+        // 2. Inserción Manual (Para capturar el cuadro de texto exacto si la contraseña falla)
+        public void RegistrarEventoManual(string mod, string eve, int crit, string usrTxt)
         {
-            DAL499NA.BitacoraDAL499NA bitacoraDAL = new DAL499NA.BitacoraDAL499NA();
-            Servicios499NA.BitacoraServicios499NA infoAuditoria = new Servicios499NA.BitacoraServicios499NA();
+            BitacoraDAL499NA dal = new BitacoraDAL499NA();
+            BitacoraServicios499NA info = new BitacoraServicios499NA();
 
-            // Si el usuario ingresó un texto, lo usamos. Si dejó la caja vacía, va ANÓNIMO
-            infoAuditoria.NombreUsuario499NA = !string.IsNullOrEmpty(usuarioManual) ? usuarioManual : "ANÓNIMO/SISTEMA";
+            info.NombreUsuario499NA = !string.IsNullOrEmpty(usrTxt) ? usrTxt : "ANÓNIMO/SISTEMA";
+            info.Modulo499NA = mod;
+            info.Evento499NA = eve;
+            info.Criticidad499NA = crit;
+            info.Fecha499NA = DateTime.Now;
+            info.Hora499NA = DateTime.Now.ToString("HH:mm:ss");
 
-            infoAuditoria.Modulo499NA = moduloOrigen;
-            infoAuditoria.Evento499NA = eventoOrigen;
-            infoAuditoria.Criticidad499NA = criticidadOrigen;
-            infoAuditoria.Fecha499NA = DateTime.Now;
-            infoAuditoria.Hora499NA = DateTime.Now.ToString("HH:mm:ss");
+            dal.InsertarBitacora499NA(info);
+        }
 
-            bitacoraDAL.InsertarBitacora499NA(infoAuditoria);
+        // 3. Consulta puente hacia la DAL
+        public List<BitacoraServicios499NA> ConsultarBitacora499NA(string usr, string mod, int? crit, DateTime ini, DateTime fin)
+        {
+            BitacoraDAL499NA dal = new BitacoraDAL499NA();
+            // Le pasa directo los filtros válidos a la DAL
+            return dal.ListarBitacoraFiltrada499NA(usr, mod, crit, ini, fin);
+        }
+
+        public void RegistrarCierreSesion499NA(string usuario, int crit)
+        {
+            BitacoraDAL499NA dal = new BitacoraDAL499NA();
+            BitacoraServicios499NA info = new BitacoraServicios499NA();
+
+            // Seteamos los datos fijos del Logout y mapeamos las variables
+            info.NombreUsuario499NA = usuario;
+            info.Modulo499NA = "Seguridad";
+            info.Evento499NA = "Cierre de Sesión Exitoso";
+            info.Criticidad499NA = crit;
+            info.Fecha499NA = DateTime.Now;
+            info.Hora499NA = DateTime.Now.ToString("HH:mm:ss");
+
+            dal.InsertarBitacora499NA(info);
+        }
+
+        public void RegistrarCambioContraseña499NA(string usuario, int crit)
+        {
+            BitacoraDAL499NA dal = new BitacoraDAL499NA();
+            BitacoraServicios499NA info = new BitacoraServicios499NA();
+
+            // Seteamos los datos fijos del cambio de clave
+            info.NombreUsuario499NA = usuario;
+            info.Modulo499NA = "Seguridad";
+            info.Evento499NA = "Cambio de contraseña exitoso";
+            info.Criticidad499NA = crit;
+            info.Fecha499NA = DateTime.Now;
+            info.Hora499NA = DateTime.Now.ToString("HH:mm:ss");
+
+            dal.InsertarBitacora499NA(info);
         }
 
         private string ClasificaAccion499NA(string modulo)
@@ -70,15 +98,6 @@ namespace TDP.BLL499NA
             return criticidad;
         }
 
-        public System.Collections.Generic.List<Servicios499NA.BitacoraServicios499NA> ConsultarBitacora499NA(string nombre, string apellido, string usuario, string modulo, int? criticidad, DateTime inicio, DateTime fin)
-        {
-            DAL499NA.BitacoraDAL499NA dal = new DAL499NA.BitacoraDAL499NA();
-
-            // Ejecutamos la consulta
-            var resultado = dal.ListarBitacoraFiltrada499NA(nombre, apellido, usuario, modulo, criticidad, inicio, fin);
-
-            // CORRECCIÓN: Si por algún motivo la DAL devuelve null, aseguramos una lista vacía para que no tire el Warning
-            return resultado ?? new System.Collections.Generic.List<Servicios499NA.BitacoraServicios499NA>();
-        }
+        
     }
 }
