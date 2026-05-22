@@ -21,8 +21,6 @@ namespace TDP.DAL499NA
                 using (SqlCommand cmd = new SqlCommand("SP_InsertarBitacora", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
-                    // Mapeo de los 6 parámetros exactos de tu Stored Procedure
                     cmd.Parameters.AddWithValue("@NombreUsuario", be.NombreUsuario499NA);
                     cmd.Parameters.AddWithValue("@Fecha", be.Fecha499NA.Date);
                     cmd.Parameters.AddWithValue("@Hora", be.Hora499NA);
@@ -41,7 +39,6 @@ namespace TDP.DAL499NA
             List<BitacoraServicios499NA> lista = new List<BitacoraServicios499NA>();
             string cnxStr = "Server=.;Database=TenisDePrimera;Trusted_Connection=True;";
 
-            // SQL LIMPIO: Buscamos únicamente en la tabla Bitacora basándonos en tus columnas reales
             string query = @"SELECT NombreUsuario, Fecha, Hora, Modulo, Evento, Criticidad
                      FROM Bitacora
                      WHERE Fecha BETWEEN @ini AND @fin
@@ -66,15 +63,12 @@ namespace TDP.DAL499NA
                         {
                             BitacoraServicios499NA reg = new BitacoraServicios499NA();
 
-                            // Mapeo seguro contra las columnas reales que vimos en tu base de datos
                             reg.NombreUsuario499NA = r["NombreUsuario"].ToString();
                             reg.Fecha499NA = Convert.ToDateTime(r["Fecha"]);
                             reg.Hora499NA = r["Hora"].ToString();
                             reg.Modulo499NA = r["Modulo"].ToString();
                             reg.Evento499NA = r["Evento"].ToString();
                             reg.Criticidad499NA = Convert.ToInt32(r["Criticidad"]);
-
-                            // Para que las propiedades de la clase no queden en null (y no tire warning), las seteamos vacías
                             reg.Nombre499NA = "";
                             reg.Apellido499NA = "";
 

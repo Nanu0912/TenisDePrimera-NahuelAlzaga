@@ -58,7 +58,6 @@ namespace TDP.GUI499NA
                 }
                 else
                 {
-                    // Guarda el nombre tipeado en pantalla para rastrear el error de clave
                     bll.RegistrarEventoManual("Seguridad", "Contraseña incorrecta", 3, usrIngresado);
 
                     MessageBox.Show("Usuario o contraseña incorrectos.", "Error de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
