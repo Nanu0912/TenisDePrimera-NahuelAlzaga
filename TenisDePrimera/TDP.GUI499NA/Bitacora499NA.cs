@@ -47,7 +47,6 @@ namespace TDP.GUI499NA
                 DateTime ini = dtFechaInicio.Value.Date;
                 DateTime fin = dtFechaFin.Value.Date.AddDays(1).AddTicks(-1);
 
-                // LLAMADA SANA: Sin nombre ni apellido
                 var lista = bll.ConsultarBitacora499NA(usr, mod, crit, ini, fin);
 
                 dgBitacora.DataSource = null;

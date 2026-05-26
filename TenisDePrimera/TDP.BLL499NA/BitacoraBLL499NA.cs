@@ -49,9 +49,7 @@ namespace TDP.BLL499NA
             return dal.ListarBitacoraFiltrada499NA(usr, mod, crit, ini, fin);
         }
 
-       
 
 
-        
     }
 }

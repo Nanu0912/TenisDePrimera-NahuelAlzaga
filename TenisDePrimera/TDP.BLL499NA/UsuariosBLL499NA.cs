@@ -93,10 +93,23 @@ namespace TDP.BLL499NA
             UsuariosDAL499NA.Instancia499NA.ModificarUsuario499NA(usuarioModificado);
         }
 
-        public void DesbloquearUsuario499NA(string nombreUsuarioADesbloquear499NA)
+        public void DesbloquearUsuario499NA(string nombreUsuario)
         {
-            
-          
+            if (string.IsNullOrEmpty(nombreUsuario))
+            {
+                throw new Exception("Debe especificar un nombre de usuario válido para desbloquear.");
+            }
+
+            UsuariosDAL499NA.Instancia499NA.DesbloquearUsuario499NA(nombreUsuario);
+        }
+
+        public void CambiarEstadoActivo499NA(string nombreUsuario, bool nuevoEstado)
+        {
+            if (string.IsNullOrEmpty(nombreUsuario))
+            {
+                throw new Exception("El nombre de usuario no puede estar vacío.");
+            }
+            UsuariosDAL499NA.Instancia499NA.CambiarEstadoActivo499NA(nombreUsuario, nuevoEstado);
         }
     }
 }

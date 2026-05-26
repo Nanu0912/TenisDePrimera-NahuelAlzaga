@@ -20,12 +20,14 @@ namespace TDP.GUI499NA
         public GestionUsuarios499NA()
         {
             InitializeComponent();
-            
+            lblMensajeSistema.Text = "";
+
+
         }
 
         private void GestionUsuarios499NA_Load(object sender, EventArgs e)
         {
-            rbActivos.Checked = true; // Filtro por defecto
+            rbActivos.Checked = true; 
             CargarRolesMock499NA();
             LlenarGrilla499NA();
             AlternarCampos499NA(false);
@@ -240,7 +242,39 @@ namespace TDP.GUI499NA
 
         private void btnDesbloquear_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                if (dgUsuarios.CurrentRow == null)
+                {
+                    MessageBox.Show("Por favor, seleccione un usuario de la grilla para desbloquear.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string usuarioSeleccionado = dgUsuarios.CurrentRow.Cells["NombreUsuario499NA"].Value.ToString();
+
+                DialogResult result = MessageBox.Show($"¿Está seguro que desea desbloquear al usuario '{usuarioSeleccionado}'?", "Confirmar Desbloqueo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    usuariosBLL499NA.DesbloquearUsuario499NA(usuarioSeleccionado);
+                    try
+                    {
+                        BLL499NA.BitacoraBLL499NA bitacoraBLL = new BLL499NA.BitacoraBLL499NA();
+                        string msgDesbloqueo = $"Desbloqueo de usuario exitoso: {usuarioSeleccionado}";
+                        bitacoraBLL.RegistrarEvento("Usuarios", msgDesbloqueo, 2);
+                    }
+                    catch (Exception exBit)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Error bitácora Desbloqueo: " + exBit.Message);
+                    }
+                    LlenarGrilla499NA();
+                    lblMensajeSistema.Text = $"El usuario '{usuarioSeleccionado}' ha sido desbloqueado con éxito.";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMensajeSistema.Text = "Error al desbloquear usuario: " + ex.Message;
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -252,8 +286,8 @@ namespace TDP.GUI499NA
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            
-            
+            try
+            {
                 if (dgUsuarios.CurrentRow == null)
                 {
                     MessageBox.Show("Por favor, seleccione un usuario de la grilla para modificar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -265,9 +299,9 @@ namespace TDP.GUI499NA
 
                 txtNombreUsuario.Enabled = false;
 
-                txtDNI.Text = dgUsuarios.CurrentRow.Cells["DNI499NA"].Value.ToString();
+                txtDNI.Text = dgUsuarios.CurrentRow.Cells["Dni499NA"].Value.ToString();
                 txtNombre.Text = dgUsuarios.CurrentRow.Cells["Nombre499NA"].Value.ToString();
-                txtApellido.Text = dgUsuarios.CurrentRow.Cells["Apellido499NA"].Value.ToString();
+                txtApellido.Text = dgUsuarios.CurrentRow.Cells["Apellidos499NA"].Value.ToString();
 
                 if (dgUsuarios.CurrentRow.Cells["Email499NA"] != null && dgUsuarios.CurrentRow.Cells["Email499NA"].Value != null)
                 {
@@ -275,15 +309,68 @@ namespace TDP.GUI499NA
                 }
                 else
                 {
-                    txtEmail.Text = ""; 
+                    txtEmail.Text = "";
                 }
 
                 txtNombreUsuario.Text = dgUsuarios.CurrentRow.Cells["NombreUsuario499NA"].Value.ToString();
                 listRol.SelectedItem = dgUsuarios.CurrentRow.Cells["Rol499NA"].Value.ToString();
 
                 lblMensajeSistema.Text = "Campos habilitados para la modificación.";
-            
-            
+            }
+            catch (Exception ex)
+            {
+                lblMensajeSistema.Text = "Error al cargar modificación: " + ex.Message;
+            }
+
+        }
+
+        private void btnActivarDesactivar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgUsuarios.CurrentRow == null)
+                {
+                    MessageBox.Show("Por favor, seleccione un usuario de la grilla para alterar su estado.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                UsuarioServicios499NA seleccionado = (UsuarioServicios499NA)dgUsuarios.CurrentRow.DataBoundItem;
+
+                string username = seleccionado.NombreUsuario499NA;
+                bool estadoActual = seleccionado.Activo499NA;
+
+                bool nuevoEstado = !estadoActual;
+                string accionTexto = nuevoEstado ? "ACTIVAR" : "DESACTIVAR";
+
+                DialogResult result = MessageBox.Show($"¿Está seguro que desea {accionTexto} al usuario '{username}'?", "Confirmar Acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    usuariosBLL499NA.CambiarEstadoActivo499NA(username, nuevoEstado);
+
+                    try
+                    {
+                        BLL499NA.BitacoraBLL499NA bitacoraBLL = new BLL499NA.BitacoraBLL499NA();
+                        string msgBitacora = nuevoEstado
+                            ? $"Alta lógica (Activación) del usuario: {username}"
+                            : $"Baja lógica (Desactivación) del usuario: {username}";
+
+                        bitacoraBLL.RegistrarEvento("Usuarios", msgBitacora, 2);
+                    }
+                    catch (Exception exBit)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Error bitácora Act/Desact: " + exBit.Message);
+                    }
+                    LlenarGrilla499NA();
+
+                    string msgExito = nuevoEstado ? "activado" : "desactivado";
+                    lblMensajeSistema.Text = $"El usuario '{username}' fue {msgExito} con éxito.";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMensajeSistema.Text = "Error al cambiar estado del usuario: " + ex.Message;
+            }
         }
     }
 }

@@ -197,15 +197,58 @@ namespace TDP.DAL499NA
 
         public void DesbloquearUsuario499NA(string nombreUsuario)
         {
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion499NA))
+            string cadenaConexion = "Data Source=.;Initial Catalog=TenisDePrimera;Integrated Security=True";
+
+            using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(cadenaConexion))
             {
-                using (SqlCommand cmd = new SqlCommand("SP_Usuario_Desbloqueo", conexion))
+                using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("dbo.SP_Usuario_Desbloqueo", con))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
                     cmd.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
 
-                    conexion.Open();
-                    cmd.ExecuteNonQuery();
+                    try
+                    {
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Error en la base de datos al desbloquear: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        public void CambiarEstadoActivo499NA(string nombreUsuario, bool nuevoEstado)
+        {
+            string cadenaConexion = "Data Source=.;Initial Catalog=TenisDePrimera;Integrated Security=True";
+
+            using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(cadenaConexion))
+            {
+                string query = @"UPDATE Usuarios 
+                         SET Activo = @nuevoEstado 
+                         WHERE NombreUsuario = @usrName";
+
+                using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@nuevoEstado", nuevoEstado);
+                    cmd.Parameters.AddWithValue("@usrName", nombreUsuario);
+
+                    try
+                    {
+                        con.Open();
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+
+                        if (filasAfectadas == 0)
+                        {
+                            throw new Exception("No se encontró el usuario en la base de datos.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Error en la base de datos al cambiar estado: " + ex.Message);
+                    }
                 }
             }
         }

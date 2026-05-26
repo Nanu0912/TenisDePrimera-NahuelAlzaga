@@ -281,6 +281,7 @@
             this.btnActivarDesactivar.TabIndex = 26;
             this.btnActivarDesactivar.Text = "Act. / Desact.";
             this.btnActivarDesactivar.UseVisualStyleBackColor = false;
+            this.btnActivarDesactivar.Click += new System.EventHandler(this.btnActivarDesactivar_Click);
             // 
             // btnAplicar
             // 
