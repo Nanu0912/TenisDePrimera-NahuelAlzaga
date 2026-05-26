@@ -84,6 +84,15 @@ namespace TDP.BLL499NA
             return UsuariosDAL499NA.Instancia499NA.ListarUsuarios499NA(mostrarTodos);
         }
 
+        public void ModificarUsuario499NA(Servicios499NA.UsuarioServicios499NA usuarioModificado)
+        {
+            if (string.IsNullOrEmpty(usuarioModificado.Dni499NA) || string.IsNullOrEmpty(usuarioModificado.NombreUsuario499NA))
+            {
+                throw new Exception("No cumple con los requisitos: Campos obligatorios vacíos.");
+            }
+            UsuariosDAL499NA.Instancia499NA.ModificarUsuario499NA(usuarioModificado);
+        }
+
         public void DesbloquearUsuario499NA(string nombreUsuarioADesbloquear499NA)
         {
             

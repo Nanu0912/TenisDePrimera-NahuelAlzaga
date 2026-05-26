@@ -92,6 +92,8 @@ namespace TDP.GUI499NA
         {
             try
             {
+                BLL499NA.BitacoraBLL499NA bitacoraBLL = new BLL499NA.BitacoraBLL499NA();
+
                 if (accionActual499NA == "ALTA")
                 {
                     if (string.IsNullOrEmpty(txtNombre.Text.Trim()) || string.IsNullOrEmpty(txtDNI.Text.Trim()))
@@ -115,13 +117,58 @@ namespace TDP.GUI499NA
                     };
 
                     usuariosBLL499NA.CrearUsuario499NA(nuevo, contraseña);
+              
+                    try
+                    {
+                        string msgAlta = $"Alta de usuario exitosa: {nuevo.NombreUsuario499NA} (Rol: {nuevo.Rol499NA})";
+                        bitacoraBLL.RegistrarEvento("Usuarios", msgAlta, 2);
+                    }
+                    catch (Exception exBit)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Error bitácora Alta: " + exBit.Message);
+                    }
 
                     lblMensajeSistema.Text = $"Usuario creado con éxito. Clave inicial: {contraseña}";
                 }
                 else if (accionActual499NA == "MODIFICACION")
                 {
-                    lblMensajeSistema.Text = "Cambios del usuario guardados con éxito.";
+                    if (dgUsuarios.CurrentRow == null)
+                    {
+                        throw new Exception("Debe seleccionar un usuario de la grilla para poder aplicar las modificaciones.");
+                    }
+
+                    string usuarioSeleccionadoEnGrilla = dgUsuarios.CurrentRow.Cells["NombreUsuario499NA"].Value.ToString();
+
+                    UsuarioServicios499NA editado = new UsuarioServicios499NA
+                    {
+                        NombreUsuario499NA = usuarioSeleccionadoEnGrilla,
+
+                        Dni499NA = txtDNI.Text.Trim(),
+                        Nombre499NA = txtNombre.Text.Trim(),
+                        Apellidos499NA = txtApellido.Text.Trim(),
+                        Email499NA = txtEmail.Text.Trim(),
+                        Rol499NA = listRol.SelectedItem.ToString(),
+
+                        Activo499NA = true,
+                        Bloqueo499NA = false,
+                        Intentos499NA = 0
+                    };
+
+                    usuariosBLL499NA.ModificarUsuario499NA(editado);
+
+                    try
+                    {
+                        string msgMod = $"Modificación de datos exitosa para el usuario: {editado.NombreUsuario499NA}";
+                        bitacoraBLL.RegistrarEvento("Usuarios", msgMod, 2); // Criticidad 2 (Modificación)
+                    }
+                    catch (Exception exBit)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Error bitácora Modificación: " + exBit.Message);
+                    }
+
+                    lblMensajeSistema.Text = $"Usuario '{editado.NombreUsuario499NA}' modificado con éxito.";
                 }
+
 
                 accionActual499NA = "";
                 AlternarCampos499NA(false);
@@ -201,6 +248,42 @@ namespace TDP.GUI499NA
             MenuPrincipal499NA mp = new MenuPrincipal499NA();
 
             mp.Show();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            
+            
+                if (dgUsuarios.CurrentRow == null)
+                {
+                    MessageBox.Show("Por favor, seleccione un usuario de la grilla para modificar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                accionActual499NA = "MODIFICACION";
+
+                AlternarCampos499NA(true);
+
+                txtNombreUsuario.Enabled = false;
+
+                txtDNI.Text = dgUsuarios.CurrentRow.Cells["DNI499NA"].Value.ToString();
+                txtNombre.Text = dgUsuarios.CurrentRow.Cells["Nombre499NA"].Value.ToString();
+                txtApellido.Text = dgUsuarios.CurrentRow.Cells["Apellido499NA"].Value.ToString();
+
+                if (dgUsuarios.CurrentRow.Cells["Email499NA"] != null && dgUsuarios.CurrentRow.Cells["Email499NA"].Value != null)
+                {
+                    txtEmail.Text = dgUsuarios.CurrentRow.Cells["Email499NA"].Value.ToString();
+                }
+                else
+                {
+                    txtEmail.Text = ""; 
+                }
+
+                txtNombreUsuario.Text = dgUsuarios.CurrentRow.Cells["NombreUsuario499NA"].Value.ToString();
+                listRol.SelectedItem = dgUsuarios.CurrentRow.Cells["Rol499NA"].Value.ToString();
+
+                lblMensajeSistema.Text = "Campos habilitados para la modificación.";
+            
+            
         }
     }
 }

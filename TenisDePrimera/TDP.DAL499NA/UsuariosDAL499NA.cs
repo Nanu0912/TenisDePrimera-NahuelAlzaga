@@ -148,6 +148,53 @@ namespace TDP.DAL499NA
             return lista;
         }
 
+
+        public void ModificarUsuario499NA(Servicios499NA.UsuarioServicios499NA usr)
+        {
+            string cadenaConexion = "Data Source=.;Initial Catalog=TenisDePrimera;Integrated Security=True";
+
+  
+            int idRolNumerico = 0; 
+            if (usr.Rol499NA == "Administrador" || usr.Rol499NA == "Admin") idRolNumerico = 1;
+            else if (usr.Rol499NA == "Empleado") idRolNumerico = 2;
+
+            using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(cadenaConexion))
+            {
+                string query = @"UPDATE Usuarios 
+                         SET DNI = @dni, 
+                             Apellidos = @ape, 
+                             Nombre = @nom, 
+                             IdRol = @idRol, 
+                             Email = @em 
+                         WHERE NombreUsuario = @usrName";
+
+                using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@dni", usr.Dni499NA);          
+                    cmd.Parameters.AddWithValue("@ape", usr.Apellidos499NA);    
+                    cmd.Parameters.AddWithValue("@nom", usr.Nombre499NA);        
+                    cmd.Parameters.AddWithValue("@idRol", idRolNumerico);       
+                    cmd.Parameters.AddWithValue("@em", usr.Email499NA);         
+                    cmd.Parameters.AddWithValue("@usrName", usr.NombreUsuario499NA); 
+
+                    try
+                    {
+                        con.Open();
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+
+                        if (filasAfectadas == 0)
+                        {
+                            throw new Exception("No se encontró el usuario en la base de datos para modificar.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Error en la base de datos al modificar usuario: " + ex.Message);
+                    }
+                }
+            }
+        }
+
         public void DesbloquearUsuario499NA(string nombreUsuario)
         {
             using (SqlConnection conexion = new SqlConnection(cadenaConexion499NA))
