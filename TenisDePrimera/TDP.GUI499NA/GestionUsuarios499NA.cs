@@ -105,13 +105,17 @@ namespace TDP.GUI499NA
 
                     string contraseña = (txtNombre.Text.Trim() + txtDNI.Text.Trim());
 
+                    string nombreusuario = txtNombre.Text.Trim() + txtApellido.Text.Trim();
+
                     UsuarioServicios499NA nuevo = new UsuarioServicios499NA
                     {
                         Dni499NA = txtDNI.Text.Trim(),
                         Nombre499NA = txtNombre.Text.Trim(),
                         Apellidos499NA = txtApellido.Text.Trim(),
                         Email499NA = txtEmail.Text.Trim(),
-                        NombreUsuario499NA = txtNombreUsuario.Text.Trim().ToLower(),
+
+                        NombreUsuario499NA = nombreusuario,
+
                         Rol499NA = listRol.SelectedItem.ToString(),
                         Activo499NA = true,
                         Bloqueo499NA = false,
@@ -119,7 +123,7 @@ namespace TDP.GUI499NA
                     };
 
                     usuariosBLL499NA.CrearUsuario499NA(nuevo, contraseña);
-              
+
                     try
                     {
                         string msgAlta = $"Alta de usuario exitosa: {nuevo.NombreUsuario499NA} (Rol: {nuevo.Rol499NA})";
@@ -130,7 +134,7 @@ namespace TDP.GUI499NA
                         System.Diagnostics.Debug.WriteLine("Error bitácora Alta: " + exBit.Message);
                     }
 
-                    lblMensajeSistema.Text = $"Usuario creado con éxito. Clave inicial: {contraseña}";
+                    lblMensajeSistema.Text = $"Usuario creado con éxito. Usuario: {nombreusuario} | Clave inicial: {contraseña}";
                 }
                 else if (accionActual499NA == "MODIFICACION")
                 {
@@ -161,7 +165,7 @@ namespace TDP.GUI499NA
                     try
                     {
                         string msgMod = $"Modificación de datos exitosa para el usuario: {editado.NombreUsuario499NA}";
-                        bitacoraBLL.RegistrarEvento("Usuarios", msgMod, 2); // Criticidad 2 (Modificación)
+                        bitacoraBLL.RegistrarEvento("Usuarios", msgMod, 2);
                     }
                     catch (Exception exBit)
                     {
@@ -171,14 +175,13 @@ namespace TDP.GUI499NA
                     lblMensajeSistema.Text = $"Usuario '{editado.NombreUsuario499NA}' modificado con éxito.";
                 }
 
-
-                accionActual499NA = "";
-                AlternarCampos499NA(false);
                 LlenarGrilla499NA();
+                AlternarCampos499NA(false);
+                accionActual499NA = "";
             }
             catch (Exception ex)
             {
-                lblMensajeSistema.Text = "Error: " + ex.Message;
+                lblMensajeSistema.Text = "Error al procesar la acción: " + ex.Message;
             }
         }
 
@@ -188,7 +191,6 @@ namespace TDP.GUI499NA
             txtNombre.Enabled = estado499NA;
             txtApellido.Enabled = estado499NA;
             txtEmail.Enabled = estado499NA;
-            txtNombreUsuario.Enabled = estado499NA;
             listRol.Enabled = estado499NA;
 
             btnAplicar.Enabled = estado499NA || (dgUsuarios.CurrentRow != null);
@@ -201,7 +203,6 @@ namespace TDP.GUI499NA
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtEmail.Text = "";
-            txtNombreUsuario.Text = "";
             cbBloqueado.Checked = false;
             cbUsuarioActivo.Checked = true;
         }
@@ -230,7 +231,6 @@ namespace TDP.GUI499NA
                 txtNombre.Text = seleccionado.Nombre499NA;
                 txtApellido.Text = seleccionado.Apellidos499NA;
                 txtEmail.Text = seleccionado.Email499NA;
-                txtNombreUsuario.Text = seleccionado.NombreUsuario499NA;
 
                 cbBloqueado.Checked = seleccionado.Bloqueo499NA;
                 cbUsuarioActivo.Checked = seleccionado.Activo499NA;
@@ -297,7 +297,6 @@ namespace TDP.GUI499NA
 
                 AlternarCampos499NA(true);
 
-                txtNombreUsuario.Enabled = false;
 
                 txtDNI.Text = dgUsuarios.CurrentRow.Cells["Dni499NA"].Value.ToString();
                 txtNombre.Text = dgUsuarios.CurrentRow.Cells["Nombre499NA"].Value.ToString();
@@ -312,7 +311,6 @@ namespace TDP.GUI499NA
                     txtEmail.Text = "";
                 }
 
-                txtNombreUsuario.Text = dgUsuarios.CurrentRow.Cells["NombreUsuario499NA"].Value.ToString();
                 listRol.SelectedItem = dgUsuarios.CurrentRow.Cells["Rol499NA"].Value.ToString();
 
                 lblMensajeSistema.Text = "Campos habilitados para la modificación.";

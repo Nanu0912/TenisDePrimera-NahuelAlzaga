@@ -40,8 +40,6 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.listRol = new System.Windows.Forms.ListBox();
             this.cbBloqueado = new System.Windows.Forms.CheckBox();
             this.cbUsuarioActivo = new System.Windows.Forms.CheckBox();
@@ -101,7 +99,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(135, 386);
+            this.label2.Location = new System.Drawing.Point(135, 403);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 20);
             this.label2.TabIndex = 4;
@@ -109,14 +107,14 @@
             // 
             // txtDNI
             // 
-            this.txtDNI.Location = new System.Drawing.Point(193, 384);
+            this.txtDNI.Location = new System.Drawing.Point(193, 401);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(337, 22);
             this.txtDNI.TabIndex = 5;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(193, 422);
+            this.txtNombre.Location = new System.Drawing.Point(193, 439);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(337, 22);
             this.txtNombre.TabIndex = 7;
@@ -126,7 +124,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(105, 424);
+            this.label3.Location = new System.Drawing.Point(105, 441);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 20);
             this.label3.TabIndex = 6;
@@ -134,7 +132,7 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(193, 459);
+            this.txtApellido.Location = new System.Drawing.Point(193, 476);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(337, 22);
             this.txtApellido.TabIndex = 9;
@@ -144,7 +142,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(105, 461);
+            this.label4.Location = new System.Drawing.Point(105, 478);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 20);
             this.label4.TabIndex = 8;
@@ -152,7 +150,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(193, 497);
+            this.txtEmail.Location = new System.Drawing.Point(193, 514);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(337, 22);
             this.txtEmail.TabIndex = 11;
@@ -162,7 +160,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(122, 499);
+            this.label5.Location = new System.Drawing.Point(122, 516);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 20);
             this.label5.TabIndex = 10;
@@ -173,29 +171,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(556, 387);
+            this.label6.Location = new System.Drawing.Point(556, 404);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 20);
             this.label6.TabIndex = 12;
             this.label6.Text = "Rol";
-            // 
-            // txtNombreUsuario
-            // 
-            this.txtNombreUsuario.Location = new System.Drawing.Point(193, 535);
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(337, 22);
-            this.txtNombreUsuario.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(19, 535);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(154, 20);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Nombre de Usuario";
             // 
             // listRol
             // 
@@ -204,7 +184,7 @@
             this.listRol.Items.AddRange(new object[] {
             "Administrador",
             "Empleado"});
-            this.listRol.Location = new System.Drawing.Point(560, 410);
+            this.listRol.Location = new System.Drawing.Point(560, 427);
             this.listRol.Name = "listRol";
             this.listRol.Size = new System.Drawing.Size(134, 52);
             this.listRol.TabIndex = 20;
@@ -215,7 +195,7 @@
             this.cbBloqueado.Enabled = false;
             this.cbBloqueado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbBloqueado.ForeColor = System.Drawing.SystemColors.Control;
-            this.cbBloqueado.Location = new System.Drawing.Point(193, 574);
+            this.cbBloqueado.Location = new System.Drawing.Point(193, 558);
             this.cbBloqueado.Name = "cbBloqueado";
             this.cbBloqueado.Size = new System.Drawing.Size(173, 24);
             this.cbBloqueado.TabIndex = 21;
@@ -228,7 +208,7 @@
             this.cbUsuarioActivo.Enabled = false;
             this.cbUsuarioActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbUsuarioActivo.ForeColor = System.Drawing.SystemColors.Control;
-            this.cbUsuarioActivo.Location = new System.Drawing.Point(193, 605);
+            this.cbUsuarioActivo.Location = new System.Drawing.Point(193, 589);
             this.cbUsuarioActivo.Name = "cbUsuarioActivo";
             this.cbUsuarioActivo.Size = new System.Drawing.Size(140, 24);
             this.cbUsuarioActivo.TabIndex = 22;
@@ -397,8 +377,6 @@
             this.Controls.Add(this.cbUsuarioActivo);
             this.Controls.Add(this.cbBloqueado);
             this.Controls.Add(this.listRol);
-            this.Controls.Add(this.txtNombreUsuario);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label5);
@@ -435,8 +413,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtNombreUsuario;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListBox listRol;
         private System.Windows.Forms.CheckBox cbBloqueado;
         private System.Windows.Forms.CheckBox cbUsuarioActivo;
