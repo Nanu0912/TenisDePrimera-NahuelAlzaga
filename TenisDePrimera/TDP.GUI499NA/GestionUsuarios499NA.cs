@@ -113,9 +113,7 @@ namespace TDP.GUI499NA
                         Nombre499NA = txtNombre.Text.Trim(),
                         Apellidos499NA = txtApellido.Text.Trim(),
                         Email499NA = txtEmail.Text.Trim(),
-
                         NombreUsuario499NA = nombreusuario,
-
                         Rol499NA = listRol.SelectedItem.ToString(),
                         Activo499NA = true,
                         Bloqueo499NA = false,
@@ -148,7 +146,6 @@ namespace TDP.GUI499NA
                     UsuarioServicios499NA editado = new UsuarioServicios499NA
                     {
                         NombreUsuario499NA = usuarioSeleccionadoEnGrilla,
-
                         Dni499NA = txtDNI.Text.Trim(),
                         Nombre499NA = txtNombre.Text.Trim(),
                         Apellidos499NA = txtApellido.Text.Trim(),
@@ -280,8 +277,7 @@ namespace TDP.GUI499NA
         private void btnSalir_Click(object sender, EventArgs e)
         {
             MenuPrincipal499NA mp = new MenuPrincipal499NA();
-
-            mp.Show();
+            Navegador499NA.CambiarPantalla(mp);
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

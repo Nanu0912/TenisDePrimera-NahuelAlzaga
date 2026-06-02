@@ -25,33 +25,30 @@ namespace TDP.GUI499NA
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Logout499NA plogout = new Logout499NA();
+            Navegador499NA.CambiarPantalla(plogout);
 
-            
-            plogout.ShowDialog();
 
-            
-            
+
+
         }
 
         private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CambiarContraseña499NA cc = new CambiarContraseña499NA();
+            Navegador499NA.CambiarPantalla(cc);
 
-            cc.ShowDialog();    
         }
 
         private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GestionUsuarios499NA gu = new GestionUsuarios499NA();
-
-            gu.ShowDialog();
+            Navegador499NA.CambiarPantalla(gu);
         }
 
         private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Bitacora499NA b = new Bitacora499NA();
-
-            b.ShowDialog();
+            Navegador499NA.CambiarPantalla(b);
         }
     }
 }

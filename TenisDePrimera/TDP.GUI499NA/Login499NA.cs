@@ -53,7 +53,7 @@ namespace TDP.GUI499NA
                     MessageBox.Show("¡Bienvenido al sistema de Tenis de Primera, " + usrIngresado + "!", "Login Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     MenuPrincipal499NA menu = new MenuPrincipal499NA();
-                    menu.Show();
+                    Navegador499NA.CambiarPantalla(menu);
                     this.Hide();
                 }
                 else

@@ -62,7 +62,7 @@ namespace TDP.GUI499NA
         private void btnSalir_Click(object sender, EventArgs e)
         {
             MenuPrincipal499NA mp = new MenuPrincipal499NA();
-            mp.Show();
+            Navegador499NA.CambiarPantalla(mp);
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)

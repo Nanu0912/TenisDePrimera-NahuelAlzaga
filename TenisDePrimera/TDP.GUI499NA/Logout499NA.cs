@@ -48,17 +48,17 @@ namespace TDP.GUI499NA
 
             MessageBox.Show("Sesión finalizada correctamente.", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            Login499NA pantallaLogin499NA = new Login499NA();
-            pantallaLogin499NA.Show();
+            Login499NA plogin = new Login499NA();
+            Navegador499NA.CambiarPantalla(plogin);
 
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             MenuPrincipal499NA mp = new MenuPrincipal499NA();
-            mp.Show();
+            Navegador499NA.CambiarPantalla(mp);
 
-            
+
         }
     }
 }

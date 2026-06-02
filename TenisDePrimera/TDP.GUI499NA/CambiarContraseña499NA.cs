@@ -20,7 +20,7 @@ namespace TDP.GUI499NA
         private void btnVolver_Click(object sender, EventArgs e)
         {
             MenuPrincipal499NA mp = new MenuPrincipal499NA();
-            mp.Show();
+            Navegador499NA.CambiarPantalla(mp);
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
