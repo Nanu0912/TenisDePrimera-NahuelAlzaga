@@ -17,6 +17,7 @@ namespace TDP.GUI499NA
     {
         private UsuariosBLL499NA usuariosBLL499NA = new UsuariosBLL499NA();
         private string accionActual499NA = "";
+        private BLL499NA.PerfilesBLL499NA perfilesBLL499NA = new BLL499NA.PerfilesBLL499NA();
         public GestionUsuarios499NA()
         {
             InitializeComponent();
@@ -27,8 +28,8 @@ namespace TDP.GUI499NA
 
         private void GestionUsuarios499NA_Load(object sender, EventArgs e)
         {
-            rbActivos.Checked = true; 
-            CargarRolesMock499NA();
+            rbActivos.Checked = true;
+            CargarPerfilesDinamicos499NA();
             LlenarGrilla499NA();
             AlternarCampos499NA(false);
         }
@@ -45,12 +46,23 @@ namespace TDP.GUI499NA
             }
         }
 
-        private void CargarRolesMock499NA()
+        private void CargarPerfilesDinamicos499NA()
         {
-            listRol.Items.Clear();
-            listRol.Items.Add("Administrador");
-            listRol.Items.Add("Empleado");
-            listRol.SelectedIndex = 0;
+            try
+            {
+                // Buscamos las familias raíz (los perfiles configurados en tu tabla PermisoComponente)
+                List<Componente499NA> perfiles = perfilesBLL499NA.ObtenerArbolDePermisos();
+
+                cmbPerfilRaiz.DataSource = null;
+                cmbPerfilRaiz.DataSource = perfiles;
+                cmbPerfilRaiz.ValueMember = "ID_Componente"; // El id que se guardará en la tabla Usuarios
+                cmbPerfilRaiz.DisplayMember = "Nombre";       // El texto que verá el usuario ("Administrador", etc.)
+                cmbPerfilRaiz.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                lblMensajeSistema.Text = "Error al cargar perfiles dinámicos: " + ex.Message;
+            }
         }
 
         private void LlenarGrilla499NA()
@@ -74,6 +86,10 @@ namespace TDP.GUI499NA
                 dgUsuarios.Columns["Bloqueo499NA"].Visible = false;
                 dgUsuarios.Columns["Activo499NA"].Visible = false;
                 dgUsuarios.Columns["Intentos499NA"].Visible = false;
+                if (dgUsuarios.Columns["IdPermisoRaiz"] != null)
+                {
+                    dgUsuarios.Columns["IdPermisoRaiz"].Visible = false;
+                }
             }
             catch (Exception ex)
             {
@@ -103,6 +119,11 @@ namespace TDP.GUI499NA
                         throw new Exception("El Nombre y el DNI son obligatorios para generar la contraseña inicial.");
                     }
 
+                    if (cmbPerfilRaiz.SelectedIndex == -1)
+                    {
+                        throw new Exception("Debe asignar un perfil del sistema para el nuevo usuario.");
+                    }
+
                     string contraseña = (txtNombre.Text.Trim() + txtDNI.Text.Trim());
 
                     string nombreusuario = txtNombre.Text.Trim() + txtApellido.Text.Trim();
@@ -114,7 +135,8 @@ namespace TDP.GUI499NA
                         Apellidos499NA = txtApellido.Text.Trim(),
                         Email499NA = txtEmail.Text.Trim(),
                         NombreUsuario499NA = nombreusuario,
-                        Rol499NA = listRol.SelectedItem.ToString(),
+                        Rol499NA = cmbPerfilRaiz.Text,
+                        IdPermisoRaiz = Convert.ToInt32(cmbPerfilRaiz.SelectedValue),
                         Activo499NA = true,
                         Bloqueo499NA = false,
                         Intentos499NA = 0
@@ -141,6 +163,11 @@ namespace TDP.GUI499NA
                         throw new Exception("Debe seleccionar un usuario de la grilla para poder aplicar las modificaciones.");
                     }
 
+                    if (cmbPerfilRaiz.SelectedIndex == -1)
+                    {
+                        throw new Exception("El usuario debe conservar al menos un perfil asignado.");
+                    }
+
                     string usuarioSeleccionadoEnGrilla = dgUsuarios.CurrentRow.Cells["NombreUsuario499NA"].Value.ToString();
 
                     UsuarioServicios499NA editado = new UsuarioServicios499NA
@@ -150,8 +177,8 @@ namespace TDP.GUI499NA
                         Nombre499NA = txtNombre.Text.Trim(),
                         Apellidos499NA = txtApellido.Text.Trim(),
                         Email499NA = txtEmail.Text.Trim(),
-                        Rol499NA = listRol.SelectedItem.ToString(),
-
+                        Rol499NA = cmbPerfilRaiz.Text,
+                        IdPermisoRaiz = Convert.ToInt32(cmbPerfilRaiz.SelectedValue),
                         Activo499NA = true,
                         Bloqueo499NA = false,
                         Intentos499NA = 0
@@ -188,7 +215,7 @@ namespace TDP.GUI499NA
             txtNombre.Enabled = estado499NA;
             txtApellido.Enabled = estado499NA;
             txtEmail.Enabled = estado499NA;
-            listRol.Enabled = estado499NA;
+            cmbPerfilRaiz.Enabled = estado499NA;
 
             btnAplicar.Enabled = estado499NA || (dgUsuarios.CurrentRow != null);
             btnCancelar.Enabled = estado499NA;
@@ -202,6 +229,7 @@ namespace TDP.GUI499NA
             txtEmail.Text = "";
             cbBloqueado.Checked = false;
             cbUsuarioActivo.Checked = true;
+            cmbPerfilRaiz.SelectedIndex = -1;
         }
 
         private void rbTodos_CheckedChanged(object sender, EventArgs e)
@@ -232,8 +260,14 @@ namespace TDP.GUI499NA
                 cbBloqueado.Checked = seleccionado.Bloqueo499NA;
                 cbUsuarioActivo.Checked = seleccionado.Activo499NA;
 
-                if (seleccionado.Rol499NA == "Administrador") listRol.SelectedIndex = 0;
-                else listRol.SelectedIndex = 1;
+                if (seleccionado.IdPermisoRaiz > 0)
+                {
+                    cmbPerfilRaiz.SelectedValue = seleccionado.IdPermisoRaiz;
+                }
+                else
+                {
+                    cmbPerfilRaiz.SelectedIndex = -1;
+                }
             }
         }
 
@@ -307,7 +341,15 @@ namespace TDP.GUI499NA
                     txtEmail.Text = "";
                 }
 
-                listRol.SelectedItem = dgUsuarios.CurrentRow.Cells["Rol499NA"].Value.ToString();
+                UsuarioServicios499NA seleccionado = (UsuarioServicios499NA)dgUsuarios.CurrentRow.DataBoundItem;
+                if (seleccionado.IdPermisoRaiz > 0)
+                {
+                    cmbPerfilRaiz.SelectedValue = seleccionado.IdPermisoRaiz;
+                }
+                else
+                {
+                    cmbPerfilRaiz.SelectedIndex = -1;
+                }
 
                 lblMensajeSistema.Text = "Campos habilitados para la modificación.";
             }
@@ -366,5 +408,7 @@ namespace TDP.GUI499NA
                 lblMensajeSistema.Text = "Error al cambiar estado del usuario: " + ex.Message;
             }
         }
+
+        
     }
 }

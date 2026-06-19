@@ -18,5 +18,7 @@ namespace TDP.Servicios499NA
         public bool Bloqueo499NA { get; set; }
         public bool Activo499NA { get; set; }
         public int Intentos499NA { get; set; }
+
+        public int IdPermisoRaiz { get; set; }
     }
 }

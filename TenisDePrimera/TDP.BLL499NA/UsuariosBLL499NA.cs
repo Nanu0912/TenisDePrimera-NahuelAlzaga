@@ -111,5 +111,7 @@ namespace TDP.BLL499NA
             }
             UsuariosDAL499NA.Instancia499NA.CambiarEstadoActivo499NA(nombreUsuario, nuevoEstado);
         }
+
+
     }
 }

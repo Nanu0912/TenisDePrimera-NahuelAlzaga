@@ -50,5 +50,36 @@ namespace TDP.GUI499NA
             Bitacora499NA b = new Bitacora499NA();
             Navegador499NA.CambiarPantalla(b);
         }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gestionDeCanchasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cambiarIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuPrincipal499NA_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iniciarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login499NA plogin = new Login499NA();
+            Navegador499NA.CambiarPantalla(plogin);
+        }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

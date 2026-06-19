@@ -54,9 +54,10 @@ namespace TDP.DAL499NA
                                 Email499NA = lector499NA["Email"].ToString(),
                                 Bloqueo499NA = Convert.ToBoolean(lector499NA["Bloqueo"]),
                                 Activo499NA = Convert.ToBoolean(lector499NA["Activo"]),
-                                Intentos499NA = Convert.ToInt32(lector499NA["Intentos"])
+                                Intentos499NA = Convert.ToInt32(lector499NA["Intentos"]),
+                                IdPermisoRaiz = lector499NA["id_permiso_raiz"] != DBNull.Value ? Convert.ToInt32(lector499NA["id_permiso_raiz"]) : 0
                             };
-                        }
+                        } 
                     }
                 }
             }
@@ -77,6 +78,7 @@ namespace TDP.DAL499NA
                     cmd.Parameters.AddWithValue("@Contraseña", nuevoUsuario499NA.Contraseña499NA);
                     cmd.Parameters.AddWithValue("@NombreRol", nuevoUsuario499NA.Rol499NA);
                     cmd.Parameters.AddWithValue("@Email", nuevoUsuario499NA.Email499NA);
+                    cmd.Parameters.AddWithValue("@id_permiso_raiz", nuevoUsuario499NA.IdPermisoRaiz);
 
                     conexion499NA.Open();
                     cmd.ExecuteNonQuery();
@@ -155,8 +157,8 @@ namespace TDP.DAL499NA
 
   
             int idRolNumerico = 0; 
-            if (usr.Rol499NA == "Administrador" || usr.Rol499NA == "Admin") idRolNumerico = 1;
-            else if (usr.Rol499NA == "Empleado") idRolNumerico = 2;
+            if (usr.Rol499NA == "Administrador" || usr.Rol499NA == "Admin" || usr.Rol499NA == "Administrador del Sistema") idRolNumerico = 1;
+            else  idRolNumerico = 2;
 
             using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(cadenaConexion))
             {
@@ -165,7 +167,8 @@ namespace TDP.DAL499NA
                              Apellidos = @ape, 
                              Nombre = @nom, 
                              IdRol = @idRol, 
-                             Email = @em 
+                             Email = @em,
+                             id_permiso_raiz = @idPermisoRaiz
                          WHERE NombreUsuario = @usrName";
 
                 using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, con))
@@ -175,7 +178,8 @@ namespace TDP.DAL499NA
                     cmd.Parameters.AddWithValue("@nom", usr.Nombre499NA);        
                     cmd.Parameters.AddWithValue("@idRol", idRolNumerico);       
                     cmd.Parameters.AddWithValue("@em", usr.Email499NA);         
-                    cmd.Parameters.AddWithValue("@usrName", usr.NombreUsuario499NA); 
+                    cmd.Parameters.AddWithValue("@usrName", usr.NombreUsuario499NA);
+                    cmd.Parameters.AddWithValue("@idPermisoRaiz", usr.IdPermisoRaiz);
 
                     try
                     {

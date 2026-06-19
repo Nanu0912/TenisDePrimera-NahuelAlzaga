@@ -40,7 +40,6 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.listRol = new System.Windows.Forms.ListBox();
             this.cbBloqueado = new System.Windows.Forms.CheckBox();
             this.cbUsuarioActivo = new System.Windows.Forms.CheckBox();
             this.btnCrearUsuario = new System.Windows.Forms.Button();
@@ -53,6 +52,7 @@
             this.lblMensajeSistema = new System.Windows.Forms.Label();
             this.dgUsuarios = new System.Windows.Forms.DataGridView();
             this.btnDesbloquearUsuario = new System.Windows.Forms.Button();
+            this.cmbPerfilRaiz = new System.Windows.Forms.ComboBox();
             this.gbNotificaciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsuarios)).BeginInit();
             this.SuspendLayout();
@@ -99,7 +99,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(135, 403);
+            this.label2.Location = new System.Drawing.Point(105, 398);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 20);
             this.label2.TabIndex = 4;
@@ -107,16 +107,16 @@
             // 
             // txtDNI
             // 
-            this.txtDNI.Location = new System.Drawing.Point(193, 401);
+            this.txtDNI.Location = new System.Drawing.Point(163, 396);
             this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Size = new System.Drawing.Size(337, 22);
+            this.txtDNI.Size = new System.Drawing.Size(342, 22);
             this.txtDNI.TabIndex = 5;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(193, 439);
+            this.txtNombre.Location = new System.Drawing.Point(163, 434);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(337, 22);
+            this.txtNombre.Size = new System.Drawing.Size(342, 22);
             this.txtNombre.TabIndex = 7;
             // 
             // label3
@@ -124,7 +124,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(105, 441);
+            this.label3.Location = new System.Drawing.Point(75, 436);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 20);
             this.label3.TabIndex = 6;
@@ -132,9 +132,9 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(193, 476);
+            this.txtApellido.Location = new System.Drawing.Point(163, 471);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(337, 22);
+            this.txtApellido.Size = new System.Drawing.Size(342, 22);
             this.txtApellido.TabIndex = 9;
             // 
             // label4
@@ -142,7 +142,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(105, 478);
+            this.label4.Location = new System.Drawing.Point(75, 473);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 20);
             this.label4.TabIndex = 8;
@@ -150,9 +150,9 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(193, 514);
+            this.txtEmail.Location = new System.Drawing.Point(163, 509);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(337, 22);
+            this.txtEmail.Size = new System.Drawing.Size(342, 22);
             this.txtEmail.TabIndex = 11;
             // 
             // label5
@@ -160,7 +160,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(122, 516);
+            this.label5.Location = new System.Drawing.Point(92, 511);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 20);
             this.label5.TabIndex = 10;
@@ -171,23 +171,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(556, 404);
+            this.label6.Location = new System.Drawing.Point(516, 375);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 20);
             this.label6.TabIndex = 12;
             this.label6.Text = "Rol";
-            // 
-            // listRol
-            // 
-            this.listRol.FormattingEnabled = true;
-            this.listRol.ItemHeight = 16;
-            this.listRol.Items.AddRange(new object[] {
-            "Administrador",
-            "Empleado"});
-            this.listRol.Location = new System.Drawing.Point(560, 427);
-            this.listRol.Name = "listRol";
-            this.listRol.Size = new System.Drawing.Size(134, 52);
-            this.listRol.TabIndex = 20;
             // 
             // cbBloqueado
             // 
@@ -195,7 +183,7 @@
             this.cbBloqueado.Enabled = false;
             this.cbBloqueado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbBloqueado.ForeColor = System.Drawing.SystemColors.Control;
-            this.cbBloqueado.Location = new System.Drawing.Point(193, 558);
+            this.cbBloqueado.Location = new System.Drawing.Point(163, 553);
             this.cbBloqueado.Name = "cbBloqueado";
             this.cbBloqueado.Size = new System.Drawing.Size(173, 24);
             this.cbBloqueado.TabIndex = 21;
@@ -208,7 +196,7 @@
             this.cbUsuarioActivo.Enabled = false;
             this.cbUsuarioActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbUsuarioActivo.ForeColor = System.Drawing.SystemColors.Control;
-            this.cbUsuarioActivo.Location = new System.Drawing.Point(193, 589);
+            this.cbUsuarioActivo.Location = new System.Drawing.Point(163, 584);
             this.cbUsuarioActivo.Name = "cbUsuarioActivo";
             this.cbUsuarioActivo.Size = new System.Drawing.Size(140, 24);
             this.cbUsuarioActivo.TabIndex = 22;
@@ -359,12 +347,24 @@
             this.btnDesbloquearUsuario.UseVisualStyleBackColor = false;
             this.btnDesbloquearUsuario.Click += new System.EventHandler(this.btnDesbloquear_Click);
             // 
+            // cmbPerfilRaiz
+            // 
+            this.cmbPerfilRaiz.FormattingEnabled = true;
+            this.cmbPerfilRaiz.Items.AddRange(new object[] {
+            "Administrador del Sistema",
+            "Usuario Operador"});
+            this.cmbPerfilRaiz.Location = new System.Drawing.Point(520, 398);
+            this.cmbPerfilRaiz.Name = "cmbPerfilRaiz";
+            this.cmbPerfilRaiz.Size = new System.Drawing.Size(193, 24);
+            this.cmbPerfilRaiz.TabIndex = 32;
+            // 
             // GestionUsuarios499NA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1342, 653);
+            this.Controls.Add(this.cmbPerfilRaiz);
             this.Controls.Add(this.dgUsuarios);
             this.Controls.Add(this.gbNotificaciones);
             this.Controls.Add(this.btnSalir);
@@ -376,7 +376,6 @@
             this.Controls.Add(this.btnCrearUsuario);
             this.Controls.Add(this.cbUsuarioActivo);
             this.Controls.Add(this.cbBloqueado);
-            this.Controls.Add(this.listRol);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label5);
@@ -413,7 +412,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ListBox listRol;
         private System.Windows.Forms.CheckBox cbBloqueado;
         private System.Windows.Forms.CheckBox cbUsuarioActivo;
         private System.Windows.Forms.Button btnCrearUsuario;
@@ -426,5 +424,6 @@
         private System.Windows.Forms.Label lblMensajeSistema;
         private System.Windows.Forms.DataGridView dgUsuarios;
         private System.Windows.Forms.Button btnDesbloquearUsuario;
+        private System.Windows.Forms.ComboBox cmbPerfilRaiz;
     }
 }

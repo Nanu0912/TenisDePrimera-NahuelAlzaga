@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitacoraDAL499NA.cs" />
+    <Compile Include="PerfilesDAL499NA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuariosDAL499NA.cs" />
   </ItemGroup>

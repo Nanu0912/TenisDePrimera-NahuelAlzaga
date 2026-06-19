@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TDP.BLL499NA;
+using TDP.Servicios499NA;
 
 namespace TDP.GUI499NA
 {
@@ -37,6 +38,22 @@ namespace TDP.GUI499NA
             try
             {
                 string usrIngresado = txtNombre.Text.Trim();
+                BLL499NA.BitacoraBLL499NA bll = new BLL499NA.BitacoraBLL499NA();
+
+                
+                if (SessionManager499NA.Instancia499NA.UsuarioLogueado499NA != null)
+                {
+                    string usuarioActivo = SessionManager499NA.Instancia499NA.UsuarioLogueado499NA.Nombre499NA;
+
+                    
+                    bll.RegistrarEventoManual("Seguridad", $"Intento de re-login denegado. Sesión activa: {usuarioActivo}. Intento con: {usrIngresado}", 2, usuarioActivo);
+
+                    MessageBox.Show($"Ya existe una sesión activa ({usuarioActivo}) en el sistema.",
+                                    "Acción Denegada",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return; 
+                }
 
                 if (string.IsNullOrEmpty(usrIngresado) || string.IsNullOrEmpty(txtContraseña.Text.Trim()))
                 {
@@ -45,7 +62,6 @@ namespace TDP.GUI499NA
                 }
 
                 bool loginOk = usuariosBLL499NA.ValidarLogin499NA(usrIngresado, txtContraseña.Text.Trim());
-                BLL499NA.BitacoraBLL499NA bll = new BLL499NA.BitacoraBLL499NA();
 
                 if (loginOk)
                 {

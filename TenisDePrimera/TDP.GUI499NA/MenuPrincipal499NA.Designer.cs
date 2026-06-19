@@ -67,6 +67,7 @@
             this.manualDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.soporteTecnicoEnLineaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iniciarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -153,26 +154,26 @@
             // gestionDeUsuariosToolStripMenuItem
             // 
             this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
-            this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
             this.gestionDeUsuariosToolStripMenuItem.Text = "Gestion de Usuarios";
             this.gestionDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestionDeUsuariosToolStripMenuItem_Click);
             // 
             // perfilesYPermisosToolStripMenuItem
             // 
             this.perfilesYPermisosToolStripMenuItem.Name = "perfilesYPermisosToolStripMenuItem";
-            this.perfilesYPermisosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.perfilesYPermisosToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
             this.perfilesYPermisosToolStripMenuItem.Text = "Perfiles y Permisos";
             // 
             // respaldoToolStripMenuItem
             // 
             this.respaldoToolStripMenuItem.Name = "respaldoToolStripMenuItem";
-            this.respaldoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.respaldoToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
             this.respaldoToolStripMenuItem.Text = "Respaldo";
             // 
             // bitacoraToolStripMenuItem
             // 
             this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
-            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
             this.bitacoraToolStripMenuItem.Text = "Bitacora";
             this.bitacoraToolStripMenuItem.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
             // 
@@ -182,10 +183,12 @@
             this.miPerfilToolStripMenuItem,
             this.cambiarContraseñaToolStripMenuItem,
             this.cambiarIdiomaToolStripMenuItem,
-            this.cerrarSesionToolStripMenuItem});
+            this.cerrarSesionToolStripMenuItem,
+            this.iniciarSesionToolStripMenuItem});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.usuarioToolStripMenuItem.Text = "Usuario";
+            this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // miPerfilToolStripMenuItem
             // 
@@ -205,6 +208,7 @@
             this.cambiarIdiomaToolStripMenuItem.Name = "cambiarIdiomaToolStripMenuItem";
             this.cambiarIdiomaToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.cambiarIdiomaToolStripMenuItem.Text = "Cambiar Idioma";
+            this.cambiarIdiomaToolStripMenuItem.Click += new System.EventHandler(this.cambiarIdiomaToolStripMenuItem_Click);
             // 
             // cerrarSesionToolStripMenuItem
             // 
@@ -222,6 +226,7 @@
             this.gestionDeCanchasToolStripMenuItem.Name = "gestionDeCanchasToolStripMenuItem";
             this.gestionDeCanchasToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.gestionDeCanchasToolStripMenuItem.Text = "Gestion de Canchas";
+            this.gestionDeCanchasToolStripMenuItem.Click += new System.EventHandler(this.gestionDeCanchasToolStripMenuItem_Click);
             // 
             // gestionDeReservasToolStripMenuItem
             // 
@@ -313,6 +318,7 @@
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.reportesToolStripMenuItem.Text = "Reportes";
+            this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
             // 
             // reportesDeOcupacionToolStripMenuItem
             // 
@@ -360,6 +366,13 @@
             this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
             this.acercaDeToolStripMenuItem.Text = "Acerca de...";
             // 
+            // iniciarSesionToolStripMenuItem
+            // 
+            this.iniciarSesionToolStripMenuItem.Name = "iniciarSesionToolStripMenuItem";
+            this.iniciarSesionToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
+            this.iniciarSesionToolStripMenuItem.Text = "Iniciar Sesion";
+            this.iniciarSesionToolStripMenuItem.Click += new System.EventHandler(this.iniciarSesionToolStripMenuItem_Click);
+            // 
             // MenuPrincipal499NA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -372,6 +385,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MenuPrincipal499NA";
             this.Text = "MenuPrincipal499NA";
+            this.Load += new System.EventHandler(this.MenuPrincipal499NA_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -420,5 +434,6 @@
         private System.Windows.Forms.ToolStripMenuItem manualDeUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem soporteTecnicoEnLineaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iniciarSesionToolStripMenuItem;
     }
 }
