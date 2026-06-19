@@ -16,7 +16,6 @@ namespace TDP.DAL499NA
         {
             List<Componente499NA> lista = new List<Componente499NA>();
 
-            // Consulta SQL limpia para extraer la jerarquía de la tabla Composite
             string query = "SELECT id_componente, nombre, codigo, es_familia, id_padre FROM PermisoComponente";
 
             using (SqlConnection conexion499NA = new SqlConnection(cadenaConexion499NA))
@@ -35,12 +34,10 @@ namespace TDP.DAL499NA
                                     ID_Componente = Convert.ToInt32(lector499NA["id_componente"]),
                                     Nombre = lector499NA["nombre"].ToString(),
 
-                                    // Controlamos los nulos para el código (las familias lo tienen en NULL)
                                     Codigo = lector499NA["codigo"] != DBNull.Value ? lector499NA["codigo"].ToString() : null,
 
                                     EsFamilia = Convert.ToBoolean(lector499NA["es_familia"]),
 
-                                    // Controlamos los nulos para el padre (los perfiles raíz no tienen padre)
                                     ID_Padre = lector499NA["id_padre"] != DBNull.Value ? (int?)Convert.ToInt32(lector499NA["id_padre"]) : null
                                 };
 

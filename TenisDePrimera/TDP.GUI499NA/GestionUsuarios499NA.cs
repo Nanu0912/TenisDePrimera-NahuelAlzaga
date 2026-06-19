@@ -23,7 +23,6 @@ namespace TDP.GUI499NA
             InitializeComponent();
             lblMensajeSistema.Text = "";
 
-
         }
 
         private void GestionUsuarios499NA_Load(object sender, EventArgs e)
@@ -50,13 +49,12 @@ namespace TDP.GUI499NA
         {
             try
             {
-                // Buscamos las familias raíz (los perfiles configurados en tu tabla PermisoComponente)
                 List<Componente499NA> perfiles = perfilesBLL499NA.ObtenerArbolDePermisos();
 
                 cmbPerfilRaiz.DataSource = null;
                 cmbPerfilRaiz.DataSource = perfiles;
-                cmbPerfilRaiz.ValueMember = "ID_Componente"; // El id que se guardará en la tabla Usuarios
-                cmbPerfilRaiz.DisplayMember = "Nombre";       // El texto que verá el usuario ("Administrador", etc.)
+                cmbPerfilRaiz.ValueMember = "ID_Componente"; 
+                cmbPerfilRaiz.DisplayMember = "Nombre";       
                 cmbPerfilRaiz.SelectedIndex = -1;
             }
             catch (Exception ex)

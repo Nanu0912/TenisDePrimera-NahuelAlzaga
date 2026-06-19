@@ -14,10 +14,9 @@ namespace TDP.Servicios499NA
         public bool EsFamilia { get; set; }
         public int? ID_Padre { get; set; }
 
-        // El corazón del patrón Composite: La lista de hijos que contiene esta rama
+        // El corazón del  Composite: La lista de hijos que contiene esta rama
         public List<Componente499NA> Hijos { get; set; } = new List<Componente499NA>();
 
-        // Método obligatorio por arquitectura para añadir componentes al árbol
         public void AgregarHijo(Componente499NA hijo)
         {
             if (EsFamilia)
