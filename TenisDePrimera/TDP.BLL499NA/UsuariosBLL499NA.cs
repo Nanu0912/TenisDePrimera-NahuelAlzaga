@@ -40,6 +40,25 @@ namespace TDP.BLL499NA
 
             if (usuarioBD.Contraseña499NA == claveHasheada)
             {
+                try
+                {
+                    PerfilesBLL499NA perfilesBLL = new PerfilesBLL499NA();
+
+                    List<Componente499NA> todosLosPerfilesRaiz = perfilesBLL.ObtenerArbolDePermisos();
+
+                    Componente499NA perfilAsignado = todosLosPerfilesRaiz
+                        .FirstOrDefault(x => x.ID_Componente == usuarioBD.IdPermisoRaiz);
+
+                    if (perfilAsignado != null)
+                    {
+                        usuarioBD.PermisoRaiz = perfilAsignado;
+                    }
+                }
+                catch (Exception exPerfiles)
+                {
+                    System.Diagnostics.Debug.WriteLine("Error al acoplar el árbol Composite: " + exPerfiles.Message);
+                }
+
                 SessionManager499NA.Instancia499NA.IniciarSesion499NA(usuarioBD);
                 return true;
             }

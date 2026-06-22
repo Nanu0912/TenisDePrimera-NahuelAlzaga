@@ -84,6 +84,10 @@ namespace TDP.GUI499NA
                 dgUsuarios.Columns["Bloqueo499NA"].Visible = false;
                 dgUsuarios.Columns["Activo499NA"].Visible = false;
                 dgUsuarios.Columns["Intentos499NA"].Visible = false;
+                if (dgUsuarios.Columns["PermisoRaiz"] != null)
+                {
+                    dgUsuarios.Columns["PermisoRaiz"].Visible = false;
+                }
                 if (dgUsuarios.Columns["IdPermisoRaiz"] != null)
                 {
                     dgUsuarios.Columns["IdPermisoRaiz"].Visible = false;
@@ -123,8 +127,22 @@ namespace TDP.GUI499NA
                     }
 
                     string contraseña = (txtNombre.Text.Trim() + txtDNI.Text.Trim());
-
                     string nombreusuario = txtNombre.Text.Trim() + txtApellido.Text.Trim();
+
+                  
+                    int idPermisoAsignar = 0;
+
+                  
+                    if (cmbPerfilRaiz.SelectedValue != null)
+                    {
+                        idPermisoAsignar = Convert.ToInt32(cmbPerfilRaiz.SelectedValue);
+                    }
+
+                    if (idPermisoAsignar <= 1 && (cmbPerfilRaiz.Text.Contains("Usuario") || cmbPerfilRaiz.Text.Contains("Operador")))
+                    {
+                        idPermisoAsignar = 2; 
+                    }
+           
 
                     UsuarioServicios499NA nuevo = new UsuarioServicios499NA
                     {
@@ -134,7 +152,7 @@ namespace TDP.GUI499NA
                         Email499NA = txtEmail.Text.Trim(),
                         NombreUsuario499NA = nombreusuario,
                         Rol499NA = cmbPerfilRaiz.Text,
-                        IdPermisoRaiz = Convert.ToInt32(cmbPerfilRaiz.SelectedValue),
+                        IdPermisoRaiz = idPermisoAsignar, 
                         Activo499NA = true,
                         Bloqueo499NA = false,
                         Intentos499NA = 0
@@ -167,6 +185,17 @@ namespace TDP.GUI499NA
                     }
 
                     string usuarioSeleccionadoEnGrilla = dgUsuarios.CurrentRow.Cells["NombreUsuario499NA"].Value.ToString();
+                    int idPermisoAsignarMod = 0;
+                    if (cmbPerfilRaiz.SelectedValue != null)
+                    {
+                        idPermisoAsignarMod = Convert.ToInt32(cmbPerfilRaiz.SelectedValue);
+                    }
+
+                    if (idPermisoAsignarMod <= 1 && (cmbPerfilRaiz.Text.Contains("Usuario") || cmbPerfilRaiz.Text.Contains("Operador")))
+                    {
+                        idPermisoAsignarMod = 2;
+                    }
+          
 
                     UsuarioServicios499NA editado = new UsuarioServicios499NA
                     {
@@ -176,7 +205,7 @@ namespace TDP.GUI499NA
                         Apellidos499NA = txtApellido.Text.Trim(),
                         Email499NA = txtEmail.Text.Trim(),
                         Rol499NA = cmbPerfilRaiz.Text,
-                        IdPermisoRaiz = Convert.ToInt32(cmbPerfilRaiz.SelectedValue),
+                        IdPermisoRaiz = idPermisoAsignarMod, 
                         Activo499NA = true,
                         Bloqueo499NA = false,
                         Intentos499NA = 0

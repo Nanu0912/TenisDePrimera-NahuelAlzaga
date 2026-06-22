@@ -83,6 +83,12 @@
       <DependentUpon>MenuPrincipal499NA.cs</DependentUpon>
     </Compile>
     <Compile Include="Navegador499NA.cs" />
+    <Compile Include="Perfiles499NA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perfiles499NA.Designer.cs">
+      <DependentUpon>Perfiles499NA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Bitacora499NA.resx">
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal499NA.resx">
       <DependentUpon>MenuPrincipal499NA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perfiles499NA.resx">
+      <DependentUpon>Perfiles499NA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

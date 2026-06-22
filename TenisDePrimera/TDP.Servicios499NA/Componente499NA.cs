@@ -14,7 +14,7 @@ namespace TDP.Servicios499NA
         public bool EsFamilia { get; set; }
         public int? ID_Padre { get; set; }
 
-        // El corazón del  Composite: La lista de hijos que contiene esta rama
+        // El Composite: La lista de hijos que contiene esta rama
         public List<Componente499NA> Hijos { get; set; } = new List<Componente499NA>();
 
         public void AgregarHijo(Componente499NA hijo)

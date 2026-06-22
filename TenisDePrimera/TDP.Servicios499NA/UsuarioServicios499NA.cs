@@ -20,5 +20,35 @@ namespace TDP.Servicios499NA
         public int Intentos499NA { get; set; }
 
         public int IdPermisoRaiz { get; set; }
+
+        public Componente499NA PermisoRaiz { get; set; }
+
+        public bool TienePermiso(string codigoPermiso)
+        {
+            if (PermisoRaiz == null) return false;
+
+            return EvaluarPermisoRecursivo(PermisoRaiz, codigoPermiso);
+        }
+
+        private bool EvaluarPermisoRecursivo(Componente499NA componente, string codigoBuscar)
+        {
+            if (componente.Nombre == codigoBuscar || componente.Codigo == codigoBuscar)
+            {
+                return true;
+            }
+
+            if (componente.EsFamilia && componente.Hijos != null)
+            {
+                foreach (var hijo in componente.Hijos)
+                {
+                    if (EvaluarPermisoRecursivo(hijo, codigoBuscar))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
     }
 }

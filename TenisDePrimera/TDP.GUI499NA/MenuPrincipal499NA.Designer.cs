@@ -46,9 +46,10 @@
             this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iniciarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeCanchasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionDeReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.controlDeAsistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RegistrarTurnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CancelarTurnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disponibilidadYHorariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.academiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +68,6 @@
             this.manualDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.soporteTecnicoEnLineaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iniciarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -163,6 +163,7 @@
             this.perfilesYPermisosToolStripMenuItem.Name = "perfilesYPermisosToolStripMenuItem";
             this.perfilesYPermisosToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
             this.perfilesYPermisosToolStripMenuItem.Text = "Perfiles y Permisos";
+            this.perfilesYPermisosToolStripMenuItem.Click += new System.EventHandler(this.perfilesYPermisosToolStripMenuItem_Click);
             // 
             // respaldoToolStripMenuItem
             // 
@@ -217,28 +218,35 @@
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
+            // iniciarSesionToolStripMenuItem
+            // 
+            this.iniciarSesionToolStripMenuItem.Name = "iniciarSesionToolStripMenuItem";
+            this.iniciarSesionToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
+            this.iniciarSesionToolStripMenuItem.Text = "Iniciar Sesion";
+            this.iniciarSesionToolStripMenuItem.Click += new System.EventHandler(this.iniciarSesionToolStripMenuItem_Click);
+            // 
             // gestionDeCanchasToolStripMenuItem
             // 
             this.gestionDeCanchasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gestionDeReservasToolStripMenuItem,
-            this.controlDeAsistenciaToolStripMenuItem,
+            this.RegistrarTurnoToolStripMenuItem,
+            this.CancelarTurnoToolStripMenuItem,
             this.disponibilidadYHorariosToolStripMenuItem});
             this.gestionDeCanchasToolStripMenuItem.Name = "gestionDeCanchasToolStripMenuItem";
             this.gestionDeCanchasToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.gestionDeCanchasToolStripMenuItem.Text = "Gestion de Canchas";
             this.gestionDeCanchasToolStripMenuItem.Click += new System.EventHandler(this.gestionDeCanchasToolStripMenuItem_Click);
             // 
-            // gestionDeReservasToolStripMenuItem
+            // RegistrarTurnoToolStripMenuItem
             // 
-            this.gestionDeReservasToolStripMenuItem.Name = "gestionDeReservasToolStripMenuItem";
-            this.gestionDeReservasToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
-            this.gestionDeReservasToolStripMenuItem.Text = "Gestion de Reservas";
+            this.RegistrarTurnoToolStripMenuItem.Name = "RegistrarTurnoToolStripMenuItem";
+            this.RegistrarTurnoToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
+            this.RegistrarTurnoToolStripMenuItem.Text = "Registrar Turno";
             // 
-            // controlDeAsistenciaToolStripMenuItem
+            // CancelarTurnoToolStripMenuItem
             // 
-            this.controlDeAsistenciaToolStripMenuItem.Name = "controlDeAsistenciaToolStripMenuItem";
-            this.controlDeAsistenciaToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
-            this.controlDeAsistenciaToolStripMenuItem.Text = "Control de Asistencia";
+            this.CancelarTurnoToolStripMenuItem.Name = "CancelarTurnoToolStripMenuItem";
+            this.CancelarTurnoToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
+            this.CancelarTurnoToolStripMenuItem.Text = "CancelarTurno";
             // 
             // disponibilidadYHorariosToolStripMenuItem
             // 
@@ -366,13 +374,6 @@
             this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
             this.acercaDeToolStripMenuItem.Text = "Acerca de...";
             // 
-            // iniciarSesionToolStripMenuItem
-            // 
-            this.iniciarSesionToolStripMenuItem.Name = "iniciarSesionToolStripMenuItem";
-            this.iniciarSesionToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
-            this.iniciarSesionToolStripMenuItem.Text = "Iniciar Sesion";
-            this.iniciarSesionToolStripMenuItem.Click += new System.EventHandler(this.iniciarSesionToolStripMenuItem_Click);
-            // 
             // MenuPrincipal499NA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -418,8 +419,8 @@
         private System.Windows.Forms.ToolStripMenuItem perfilesYPermisosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem respaldoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestionDeReservasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem controlDeAsistenciaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RegistrarTurnoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CancelarTurnoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem disponibilidadYHorariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem profesoresToolStripMenuItem;
