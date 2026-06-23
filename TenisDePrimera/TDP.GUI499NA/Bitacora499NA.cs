@@ -26,7 +26,7 @@ namespace TDP.GUI499NA
 
         private void Bitacora499NA_Load(object sender, EventArgs e)
         {
-
+            ActualizarIdioma499NA();
         }
 
         private void btnAplicar_Click(object sender, EventArgs e)
@@ -96,6 +96,21 @@ namespace TDP.GUI499NA
             {
                 MessageBox.Show("Error al limpiar la pantalla: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public void ActualizarIdioma499NA()
+        {
+            lblNombreDeUsuario.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblNombreDeUsuario");
+            lblFechaInicio.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblFechaInicio");
+            lblFechaFin.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblFechaFin");
+            lblModulo.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblModulo");
+            lblEvento.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblEvento");
+            lblCriticidad.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblCriticidad");
+            lblBITACORADEEVENTOS.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblBITACORADEEVENTOS");
+            btnAplicar.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnAplicar");
+            btnLimpiar.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnLimpiar");
+            btnImprimir.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnImprimir");
+            btnSalir.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnSalir");
         }
     }
 }

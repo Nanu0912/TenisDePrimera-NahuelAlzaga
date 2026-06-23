@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblContraseña = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblContraseñaNueva = new System.Windows.Forms.Label();
+            this.lblContraseñaActual = new System.Windows.Forms.Label();
             this.txtContraseñaNueva = new System.Windows.Forms.TextBox();
             this.txtContraseñaActual = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblConfirmarContraseña = new System.Windows.Forms.Label();
             this.txtConfirmarContraseña = new System.Windows.Forms.TextBox();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblContraseña
+            // lblContraseñaNueva
             // 
-            this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblContraseña.Location = new System.Drawing.Point(446, 202);
-            this.lblContraseña.Name = "lblContraseña";
-            this.lblContraseña.Size = new System.Drawing.Size(147, 20);
-            this.lblContraseña.TabIndex = 7;
-            this.lblContraseña.Text = "Contraseña Nueva";
+            this.lblContraseñaNueva.AutoSize = true;
+            this.lblContraseñaNueva.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblContraseñaNueva.Location = new System.Drawing.Point(446, 202);
+            this.lblContraseñaNueva.Name = "lblContraseñaNueva";
+            this.lblContraseñaNueva.Size = new System.Drawing.Size(147, 20);
+            this.lblContraseñaNueva.TabIndex = 7;
+            this.lblContraseñaNueva.Text = "Contraseña Nueva";
             // 
-            // lblNombre
+            // lblContraseñaActual
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblNombre.Location = new System.Drawing.Point(446, 140);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(147, 20);
-            this.lblNombre.TabIndex = 6;
-            this.lblNombre.Text = "Contraseña Actual";
+            this.lblContraseñaActual.AutoSize = true;
+            this.lblContraseñaActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblContraseñaActual.Location = new System.Drawing.Point(446, 140);
+            this.lblContraseñaActual.Name = "lblContraseñaActual";
+            this.lblContraseñaActual.Size = new System.Drawing.Size(147, 20);
+            this.lblContraseñaActual.TabIndex = 6;
+            this.lblContraseñaActual.Text = "Contraseña Actual";
             // 
             // txtContraseñaNueva
             // 
@@ -72,15 +72,15 @@
             this.txtContraseñaActual.Size = new System.Drawing.Size(250, 22);
             this.txtContraseñaActual.TabIndex = 4;
             // 
-            // label1
+            // lblConfirmarContraseña
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(428, 265);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 20);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Confirmar Contraseña";
+            this.lblConfirmarContraseña.AutoSize = true;
+            this.lblConfirmarContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblConfirmarContraseña.Location = new System.Drawing.Point(428, 265);
+            this.lblConfirmarContraseña.Name = "lblConfirmarContraseña";
+            this.lblConfirmarContraseña.Size = new System.Drawing.Size(174, 20);
+            this.lblConfirmarContraseña.TabIndex = 9;
+            this.lblConfirmarContraseña.Text = "Confirmar Contraseña";
             // 
             // txtConfirmarContraseña
             // 
@@ -123,14 +123,15 @@
             this.ClientSize = new System.Drawing.Size(1423, 583);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnConfirmar);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblConfirmarContraseña);
             this.Controls.Add(this.txtConfirmarContraseña);
-            this.Controls.Add(this.lblContraseña);
-            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.lblContraseñaNueva);
+            this.Controls.Add(this.lblContraseñaActual);
             this.Controls.Add(this.txtContraseñaNueva);
             this.Controls.Add(this.txtContraseñaActual);
             this.Name = "CambiarContraseña499NA";
             this.Text = "CambiarContraseña499NA";
+            this.Load += new System.EventHandler(this.CambiarContraseña499NA_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,11 +139,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblContraseña;
-        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblContraseñaNueva;
+        private System.Windows.Forms.Label lblContraseñaActual;
         private System.Windows.Forms.TextBox txtContraseñaNueva;
         private System.Windows.Forms.TextBox txtContraseñaActual;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblConfirmarContraseña;
         private System.Windows.Forms.TextBox txtConfirmarContraseña;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Button btnVolver;

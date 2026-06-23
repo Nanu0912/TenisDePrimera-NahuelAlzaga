@@ -122,7 +122,46 @@ namespace TDP.GUI499NA
             gestionDeCanchasToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("gestionDeCanchasToolStripMenuItem");
             RegistrarTurnoToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("RegistrarTurnoToolStripMenuItem");
             CancelarTurnoToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("CancelarTurnoToolStripMenuItem");
+            disponibilidadYHorariosToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("disponibilidadYHorariosToolStripMenuItem");
             usuarioToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("usuarioToolStripMenuItem");
+            miPerfilToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("miPerfilToolStripMenuItem");
+            cambiarContraseñaToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("cambiarContraseñaToolStripMenuItem");
+            cambiarIdiomaToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("cambiarIdiomaToolStripMenuItem");
+            cerrarSesionToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("cerrarSesionToolStripMenuItem");
+            iniciarSesionToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("iniciarSesionToolStripMenuItem");
+            administradorToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("administradorToolStripMenuItem");
+            usuarioToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("usuarioToolStripMenuItem");
+            gestionDeUsuariosToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("gestionDeUsuariosToolStripMenuItem");
+            perfilesYPermisosToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("perfilesYPermisosToolStripMenuItem");
+            respaldoToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("respaldoToolStripMenuItem");
+            bitacoraToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("bitacoraToolStripMenuItem");
+            maestroToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("maestroToolStripMenuItem");
+            canchasToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("canchasToolStripMenuItem");
+            clientesToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("clientesToolStripMenuItem");
+            productosToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("productosToolStripMenuItem");
+            academiaToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("academiaToolStripMenuItem");
+            alumnosToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("alumnosToolStripMenuItem");
+            profesoresToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("profesoresToolStripMenuItem");
+            clasesToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("clasesToolStripMenuItem");
+            finanzasToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("finanzasToolStripMenuItem");
+            pagosToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("pagosToolStripMenuItem");
+            cuentasCorrientesToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("cuentasCorrientesToolStripMenuItem");
+            facturacionToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("facturacionToolStripMenuItem");
+            cajaDiariaToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("cajaDiariaToolStripMenuItem");
+            reportesToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("reportesToolStripMenuItem");
+            reportesDeOcupacionToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("reportesDeOcupacionToolStripMenuItem");
+            reporteDeRecaudacionToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("reporteDeRecaudacionToolStripMenuItem");
+            reporteDeAlumnosMorososToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("reporteDeAlumnosMorososToolStripMenuItem");
+            ayudaToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("ayudaToolStripMenuItem");
+            manualDeUsuarioToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("manualDeUsuarioToolStripMenuItem");
+            soporteTecnicoEnLineaToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("soporteTecnicoEnLineaToolStripMenuItem");
+            acercaDeToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("acercaDeToolStripMenuItem");
+            label1.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("label1");
+        }
+
+        private void administradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

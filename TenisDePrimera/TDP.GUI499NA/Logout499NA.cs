@@ -8,6 +8,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TDP.BLL499NA;
 using TDP.Servicios499NA;
 
 namespace TDP.GUI499NA
@@ -21,7 +22,7 @@ namespace TDP.GUI499NA
 
         private void Logout499NA_Load(object sender, EventArgs e)
         {
-
+            ActualizarIdioma499NA();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -59,6 +60,12 @@ namespace TDP.GUI499NA
             Navegador499NA.CambiarPantalla(mp);
 
 
+        }
+
+        public void ActualizarIdioma499NA()
+        {
+            btnLogout.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnLogout");
+            btnVolver.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnVolver");
         }
     }
 }

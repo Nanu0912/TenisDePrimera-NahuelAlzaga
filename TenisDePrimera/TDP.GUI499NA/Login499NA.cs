@@ -23,7 +23,7 @@ namespace TDP.GUI499NA
 
         private void Login499NA_Load(object sender, EventArgs e)
         {
-
+            ActualizarIdioma499NA();
         }
 
         
@@ -99,6 +99,14 @@ namespace TDP.GUI499NA
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        public void ActualizarIdioma499NA()
+        {
+            lblNombre.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblNombre");
+            lblContraseña.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblContraseña");
+            btnIngresar.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnIngresar");
+            btnSalir.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnSalir");
         }
     }
 }

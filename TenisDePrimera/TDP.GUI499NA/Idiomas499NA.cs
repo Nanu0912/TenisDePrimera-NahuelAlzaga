@@ -26,12 +26,11 @@ namespace TDP.GUI499NA
         {
             try
             {
-                // Cargamos el ComboBox usando el SP_ObtenerIdiomas a través de la BLL
+                
                 cmbIdiomas.DataSource = _idiomaBLL.ObtenerListaIdiomas();
-                cmbIdiomas.DisplayMember = "Nombre";        // Lo que ve el usuario ("Español")
-                cmbIdiomas.ValueMember = "NombreArchivo";    // El valor por detrás ("es.txt")
+                cmbIdiomas.DisplayMember = "Nombre";       
+                cmbIdiomas.ValueMember = "NombreArchivo";    
 
-                // Carga inicial de textos de la pantalla
                 ActualizarIdioma499NA();
             }
             catch (Exception ex)
@@ -49,14 +48,12 @@ namespace TDP.GUI499NA
                     string archivo = cmbIdiomas.SelectedValue.ToString();
                     int idIdioma = ((Servicios499NA.Idioma499NA)cmbIdiomas.SelectedItem).Id_Idioma;
 
-                    // Invocamos al Subject central para que dispare la recursión del Observer
                     IdiomaSubjectBLL499NA.Instancia499NA.CambiarIdioma(idIdioma, archivo);
 
                     MessageBox.Show("Idioma cambiado con éxito / Language changed successfully.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    // Bloque ALT: Captura el error si el archivo no existe o está corrupto
                     MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -69,6 +66,7 @@ namespace TDP.GUI499NA
             lblSeleccionar.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lbl_seleccionar_idioma");
             btnCambiarIdioma.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btn_cambiar_idioma");
             btnVolver.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btn_volver");
+            gbSeleccionarIdioma.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("gbSeleccionarIdioma");
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridView dgUsuarios;
+            this.lblGESTIONDEUSUARIOS = new System.Windows.Forms.Label();
             this.rbActivos = new System.Windows.Forms.RadioButton();
             this.rbTodos = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDNI = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblNombre1 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbBloqueado = new System.Windows.Forms.CheckBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblRol = new System.Windows.Forms.Label();
+            this.cbUsuarioBloqueado = new System.Windows.Forms.CheckBox();
             this.cbUsuarioActivo = new System.Windows.Forms.CheckBox();
             this.btnCrearUsuario = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -50,23 +51,23 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.gbNotificaciones = new System.Windows.Forms.GroupBox();
             this.lblMensajeSistema = new System.Windows.Forms.Label();
-            this.dgUsuarios = new System.Windows.Forms.DataGridView();
             this.btnDesbloquearUsuario = new System.Windows.Forms.Button();
             this.cmbPerfilRaiz = new System.Windows.Forms.ComboBox();
+            dgUsuarios = new System.Windows.Forms.DataGridView();
             this.gbNotificaciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(dgUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblGESTIONDEUSUARIOS
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.8F);
-            this.label1.ForeColor = System.Drawing.Color.Honeydew;
-            this.label1.Location = new System.Drawing.Point(59, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(388, 37);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "GESTION DE USUARIOS";
+            this.lblGESTIONDEUSUARIOS.AutoSize = true;
+            this.lblGESTIONDEUSUARIOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.8F);
+            this.lblGESTIONDEUSUARIOS.ForeColor = System.Drawing.Color.Honeydew;
+            this.lblGESTIONDEUSUARIOS.Location = new System.Drawing.Point(59, 35);
+            this.lblGESTIONDEUSUARIOS.Name = "lblGESTIONDEUSUARIOS";
+            this.lblGESTIONDEUSUARIOS.Size = new System.Drawing.Size(388, 37);
+            this.lblGESTIONDEUSUARIOS.TabIndex = 1;
+            this.lblGESTIONDEUSUARIOS.Text = "GESTION DE USUARIOS";
             // 
             // rbActivos
             // 
@@ -94,16 +95,16 @@
             this.rbTodos.UseVisualStyleBackColor = true;
             this.rbTodos.CheckedChanged += new System.EventHandler(this.rbTodos_CheckedChanged);
             // 
-            // label2
+            // lblDNI
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(105, 398);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "DNI";
+            this.lblDNI.AutoSize = true;
+            this.lblDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblDNI.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDNI.Location = new System.Drawing.Point(75, 398);
+            this.lblDNI.Name = "lblDNI";
+            this.lblDNI.Size = new System.Drawing.Size(38, 20);
+            this.lblDNI.TabIndex = 4;
+            this.lblDNI.Text = "DNI";
             // 
             // txtDNI
             // 
@@ -119,16 +120,16 @@
             this.txtNombre.Size = new System.Drawing.Size(342, 22);
             this.txtNombre.TabIndex = 7;
             // 
-            // label3
+            // lblNombre1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(75, 436);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Nombre";
+            this.lblNombre1.AutoSize = true;
+            this.lblNombre1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblNombre1.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblNombre1.Location = new System.Drawing.Point(75, 436);
+            this.lblNombre1.Name = "lblNombre1";
+            this.lblNombre1.Size = new System.Drawing.Size(68, 20);
+            this.lblNombre1.TabIndex = 6;
+            this.lblNombre1.Text = "Nombre";
             // 
             // txtApellido
             // 
@@ -137,16 +138,16 @@
             this.txtApellido.Size = new System.Drawing.Size(342, 22);
             this.txtApellido.TabIndex = 9;
             // 
-            // label4
+            // lblApellido
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(75, 473);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 20);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Apellido";
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblApellido.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblApellido.Location = new System.Drawing.Point(75, 473);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(68, 20);
+            this.lblApellido.TabIndex = 8;
+            this.lblApellido.Text = "Apellido";
             // 
             // txtEmail
             // 
@@ -155,40 +156,40 @@
             this.txtEmail.Size = new System.Drawing.Size(342, 22);
             this.txtEmail.TabIndex = 11;
             // 
-            // label5
+            // lblEmail
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(92, 511);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 20);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Email";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblEmail.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblEmail.Location = new System.Drawing.Point(92, 511);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(51, 20);
+            this.lblEmail.TabIndex = 10;
+            this.lblEmail.Text = "Email";
             // 
-            // label6
+            // lblRol
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(516, 375);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 20);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Rol";
+            this.lblRol.AutoSize = true;
+            this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblRol.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblRol.Location = new System.Drawing.Point(516, 375);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(34, 20);
+            this.lblRol.TabIndex = 12;
+            this.lblRol.Text = "Rol";
             // 
-            // cbBloqueado
+            // cbUsuarioBloqueado
             // 
-            this.cbBloqueado.AutoSize = true;
-            this.cbBloqueado.Enabled = false;
-            this.cbBloqueado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.cbBloqueado.ForeColor = System.Drawing.SystemColors.Control;
-            this.cbBloqueado.Location = new System.Drawing.Point(163, 553);
-            this.cbBloqueado.Name = "cbBloqueado";
-            this.cbBloqueado.Size = new System.Drawing.Size(173, 24);
-            this.cbBloqueado.TabIndex = 21;
-            this.cbBloqueado.Text = "Usuario Bloqueado";
-            this.cbBloqueado.UseVisualStyleBackColor = true;
+            this.cbUsuarioBloqueado.AutoSize = true;
+            this.cbUsuarioBloqueado.Enabled = false;
+            this.cbUsuarioBloqueado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbUsuarioBloqueado.ForeColor = System.Drawing.SystemColors.Control;
+            this.cbUsuarioBloqueado.Location = new System.Drawing.Point(163, 553);
+            this.cbUsuarioBloqueado.Name = "cbUsuarioBloqueado";
+            this.cbUsuarioBloqueado.Size = new System.Drawing.Size(173, 24);
+            this.cbUsuarioBloqueado.TabIndex = 21;
+            this.cbUsuarioBloqueado.Text = "Usuario Bloqueado";
+            this.cbUsuarioBloqueado.UseVisualStyleBackColor = true;
             // 
             // cbUsuarioActivo
             // 
@@ -321,15 +322,15 @@
             // 
             // dgUsuarios
             // 
-            this.dgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgUsuarios.Location = new System.Drawing.Point(66, 94);
-            this.dgUsuarios.Name = "dgUsuarios";
-            this.dgUsuarios.RowHeadersWidth = 51;
-            this.dgUsuarios.RowTemplate.Height = 24;
-            this.dgUsuarios.Size = new System.Drawing.Size(895, 262);
-            this.dgUsuarios.TabIndex = 31;
-            this.dgUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUsuarios_CellContentClick_1);
-            this.dgUsuarios.SelectionChanged += new System.EventHandler(this.dgUsuarios_SelectionChanged);
+            dgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgUsuarios.Location = new System.Drawing.Point(66, 94);
+            dgUsuarios.Name = "dgUsuarios";
+            dgUsuarios.RowHeadersWidth = 51;
+            dgUsuarios.RowTemplate.Height = 24;
+            dgUsuarios.Size = new System.Drawing.Size(895, 262);
+            dgUsuarios.TabIndex = 31;
+            dgUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUsuarios_CellContentClick_1);
+            dgUsuarios.SelectionChanged += new System.EventHandler(this.dgUsuarios_SelectionChanged);
             // 
             // btnDesbloquearUsuario
             // 
@@ -365,7 +366,7 @@
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1342, 653);
             this.Controls.Add(this.cmbPerfilRaiz);
-            this.Controls.Add(this.dgUsuarios);
+            this.Controls.Add(dgUsuarios);
             this.Controls.Add(this.gbNotificaciones);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnCancelar);
@@ -375,44 +376,44 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnCrearUsuario);
             this.Controls.Add(this.cbUsuarioActivo);
-            this.Controls.Add(this.cbBloqueado);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cbUsuarioBloqueado);
+            this.Controls.Add(this.lblRol);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.txtApellido);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblNombre1);
             this.Controls.Add(this.txtDNI);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblDNI);
             this.Controls.Add(this.rbTodos);
             this.Controls.Add(this.rbActivos);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblGESTIONDEUSUARIOS);
             this.Name = "GestionUsuarios499NA";
             this.Text = "GestionUsuarios499NA";
             this.Load += new System.EventHandler(this.GestionUsuarios499NA_Load);
             this.gbNotificaciones.ResumeLayout(false);
             this.gbNotificaciones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(dgUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblGESTIONDEUSUARIOS;
         private System.Windows.Forms.RadioButton rbActivos;
         private System.Windows.Forms.RadioButton rbTodos;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblNombre1;
         private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox cbBloqueado;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblRol;
+        private System.Windows.Forms.CheckBox cbUsuarioBloqueado;
         private System.Windows.Forms.CheckBox cbUsuarioActivo;
         private System.Windows.Forms.Button btnCrearUsuario;
         private System.Windows.Forms.Button btnModificar;
@@ -422,7 +423,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.GroupBox gbNotificaciones;
         private System.Windows.Forms.Label lblMensajeSistema;
-        private System.Windows.Forms.DataGridView dgUsuarios;
         private System.Windows.Forms.Button btnDesbloquearUsuario;
         private System.Windows.Forms.ComboBox cmbPerfilRaiz;
     }

@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.twPerfiles = new System.Windows.Forms.TreeView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtNombreComponente = new System.Windows.Forms.TextBox();
-            this.chkEsFamilia = new System.Windows.Forms.CheckBox();
-            this.btnCrearComponente = new System.Windows.Forms.Button();
+            this.gbCrearComponentes = new System.Windows.Forms.GroupBox();
             this.btnEliminarComponente = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmbComponentesSueltos = new System.Windows.Forms.ComboBox();
+            this.btnCrearComponente = new System.Windows.Forms.Button();
+            this.chkEsFamilia = new System.Windows.Forms.CheckBox();
+            this.txtNombreComponente = new System.Windows.Forms.TextBox();
+            this.gbAgregarAsignarArbol = new System.Windows.Forms.GroupBox();
             this.btnAgregarAlArbol = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cmbComponentesSueltos = new System.Windows.Forms.ComboBox();
+            this.gbQuitarDelArbol = new System.Windows.Forms.GroupBox();
             this.btnQuitarDelArbol = new System.Windows.Forms.Button();
             this.lblMensajeSistema = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbCrearComponentes.SuspendLayout();
+            this.gbAgregarAsignarArbol.SuspendLayout();
+            this.gbQuitarDelArbol.SuspendLayout();
             this.SuspendLayout();
             // 
             // twPerfiles
@@ -53,50 +53,18 @@
             this.twPerfiles.Size = new System.Drawing.Size(788, 499);
             this.twPerfiles.TabIndex = 0;
             // 
-            // groupBox1
+            // gbCrearComponentes
             // 
-            this.groupBox1.Controls.Add(this.btnEliminarComponente);
-            this.groupBox1.Controls.Add(this.btnCrearComponente);
-            this.groupBox1.Controls.Add(this.chkEsFamilia);
-            this.groupBox1.Controls.Add(this.txtNombreComponente);
-            this.groupBox1.Location = new System.Drawing.Point(936, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(353, 275);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Crear Componentes";
-            // 
-            // txtNombreComponente
-            // 
-            this.txtNombreComponente.Location = new System.Drawing.Point(71, 43);
-            this.txtNombreComponente.Name = "txtNombreComponente";
-            this.txtNombreComponente.Size = new System.Drawing.Size(187, 22);
-            this.txtNombreComponente.TabIndex = 6;
-            // 
-            // chkEsFamilia
-            // 
-            this.chkEsFamilia.AutoSize = true;
-            this.chkEsFamilia.Location = new System.Drawing.Point(71, 83);
-            this.chkEsFamilia.Name = "chkEsFamilia";
-            this.chkEsFamilia.Size = new System.Drawing.Size(126, 20);
-            this.chkEsFamilia.TabIndex = 7;
-            this.chkEsFamilia.Text = "Es Familia/Perfil";
-            this.chkEsFamilia.UseVisualStyleBackColor = true;
-            // 
-            // btnCrearComponente
-            // 
-            this.btnCrearComponente.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.btnCrearComponente.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.btnCrearComponente.FlatAppearance.BorderSize = 2;
-            this.btnCrearComponente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCrearComponente.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnCrearComponente.Location = new System.Drawing.Point(71, 118);
-            this.btnCrearComponente.Name = "btnCrearComponente";
-            this.btnCrearComponente.Size = new System.Drawing.Size(187, 61);
-            this.btnCrearComponente.TabIndex = 5;
-            this.btnCrearComponente.Text = "Crear Nuevo";
-            this.btnCrearComponente.UseVisualStyleBackColor = false;
-            this.btnCrearComponente.Click += new System.EventHandler(this.btnCrearComponente_Click);
+            this.gbCrearComponentes.Controls.Add(this.btnEliminarComponente);
+            this.gbCrearComponentes.Controls.Add(this.btnCrearComponente);
+            this.gbCrearComponentes.Controls.Add(this.chkEsFamilia);
+            this.gbCrearComponentes.Controls.Add(this.txtNombreComponente);
+            this.gbCrearComponentes.Location = new System.Drawing.Point(936, 12);
+            this.gbCrearComponentes.Name = "gbCrearComponentes";
+            this.gbCrearComponentes.Size = new System.Drawing.Size(353, 275);
+            this.gbCrearComponentes.TabIndex = 1;
+            this.gbCrearComponentes.TabStop = false;
+            this.gbCrearComponentes.Text = "Crear Componentes";
             // 
             // btnEliminarComponente
             // 
@@ -113,24 +81,48 @@
             this.btnEliminarComponente.UseVisualStyleBackColor = false;
             this.btnEliminarComponente.Click += new System.EventHandler(this.btnEliminarComponente_Click);
             // 
-            // groupBox2
+            // btnCrearComponente
             // 
-            this.groupBox2.Controls.Add(this.btnAgregarAlArbol);
-            this.groupBox2.Controls.Add(this.cmbComponentesSueltos);
-            this.groupBox2.Location = new System.Drawing.Point(936, 293);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(353, 218);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Asignar / Agregar Arbol";
+            this.btnCrearComponente.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnCrearComponente.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnCrearComponente.FlatAppearance.BorderSize = 2;
+            this.btnCrearComponente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCrearComponente.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCrearComponente.Location = new System.Drawing.Point(71, 118);
+            this.btnCrearComponente.Name = "btnCrearComponente";
+            this.btnCrearComponente.Size = new System.Drawing.Size(187, 61);
+            this.btnCrearComponente.TabIndex = 5;
+            this.btnCrearComponente.Text = "Crear Nuevo";
+            this.btnCrearComponente.UseVisualStyleBackColor = false;
+            this.btnCrearComponente.Click += new System.EventHandler(this.btnCrearComponente_Click);
             // 
-            // cmbComponentesSueltos
+            // chkEsFamilia
             // 
-            this.cmbComponentesSueltos.FormattingEnabled = true;
-            this.cmbComponentesSueltos.Location = new System.Drawing.Point(71, 47);
-            this.cmbComponentesSueltos.Name = "cmbComponentesSueltos";
-            this.cmbComponentesSueltos.Size = new System.Drawing.Size(187, 24);
-            this.cmbComponentesSueltos.TabIndex = 6;
+            this.chkEsFamilia.AutoSize = true;
+            this.chkEsFamilia.Location = new System.Drawing.Point(71, 83);
+            this.chkEsFamilia.Name = "chkEsFamilia";
+            this.chkEsFamilia.Size = new System.Drawing.Size(126, 20);
+            this.chkEsFamilia.TabIndex = 7;
+            this.chkEsFamilia.Text = "Es Familia/Perfil";
+            this.chkEsFamilia.UseVisualStyleBackColor = true;
+            // 
+            // txtNombreComponente
+            // 
+            this.txtNombreComponente.Location = new System.Drawing.Point(71, 43);
+            this.txtNombreComponente.Name = "txtNombreComponente";
+            this.txtNombreComponente.Size = new System.Drawing.Size(187, 22);
+            this.txtNombreComponente.TabIndex = 6;
+            // 
+            // gbAgregarAsignarArbol
+            // 
+            this.gbAgregarAsignarArbol.Controls.Add(this.btnAgregarAlArbol);
+            this.gbAgregarAsignarArbol.Controls.Add(this.cmbComponentesSueltos);
+            this.gbAgregarAsignarArbol.Location = new System.Drawing.Point(936, 293);
+            this.gbAgregarAsignarArbol.Name = "gbAgregarAsignarArbol";
+            this.gbAgregarAsignarArbol.Size = new System.Drawing.Size(353, 218);
+            this.gbAgregarAsignarArbol.TabIndex = 9;
+            this.gbAgregarAsignarArbol.TabStop = false;
+            this.gbAgregarAsignarArbol.Text = "Asignar / Agregar Arbol";
             // 
             // btnAgregarAlArbol
             // 
@@ -147,15 +139,23 @@
             this.btnAgregarAlArbol.UseVisualStyleBackColor = false;
             this.btnAgregarAlArbol.Click += new System.EventHandler(this.btnAgregarAlArbol_Click);
             // 
-            // groupBox3
+            // cmbComponentesSueltos
             // 
-            this.groupBox3.Controls.Add(this.btnQuitarDelArbol);
-            this.groupBox3.Location = new System.Drawing.Point(936, 517);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(353, 119);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Quitar del Arbol";
+            this.cmbComponentesSueltos.FormattingEnabled = true;
+            this.cmbComponentesSueltos.Location = new System.Drawing.Point(71, 47);
+            this.cmbComponentesSueltos.Name = "cmbComponentesSueltos";
+            this.cmbComponentesSueltos.Size = new System.Drawing.Size(187, 24);
+            this.cmbComponentesSueltos.TabIndex = 6;
+            // 
+            // gbQuitarDelArbol
+            // 
+            this.gbQuitarDelArbol.Controls.Add(this.btnQuitarDelArbol);
+            this.gbQuitarDelArbol.Location = new System.Drawing.Point(936, 517);
+            this.gbQuitarDelArbol.Name = "gbQuitarDelArbol";
+            this.gbQuitarDelArbol.Size = new System.Drawing.Size(353, 119);
+            this.gbQuitarDelArbol.TabIndex = 10;
+            this.gbQuitarDelArbol.TabStop = false;
+            this.gbQuitarDelArbol.Text = "Quitar del Arbol";
             // 
             // btnQuitarDelArbol
             // 
@@ -205,17 +205,17 @@
             this.ClientSize = new System.Drawing.Size(1431, 664);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblMensajeSistema);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbQuitarDelArbol);
+            this.Controls.Add(this.gbAgregarAsignarArbol);
+            this.Controls.Add(this.gbCrearComponentes);
             this.Controls.Add(this.twPerfiles);
             this.Name = "Perfiles499NA";
             this.Text = "Perfiles499NA";
             this.Load += new System.EventHandler(this.Perfiles499NA_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
+            this.gbCrearComponentes.ResumeLayout(false);
+            this.gbCrearComponentes.PerformLayout();
+            this.gbAgregarAsignarArbol.ResumeLayout(false);
+            this.gbQuitarDelArbol.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,15 +224,15 @@
         #endregion
 
         private System.Windows.Forms.TreeView twPerfiles;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbCrearComponentes;
         private System.Windows.Forms.CheckBox chkEsFamilia;
         private System.Windows.Forms.TextBox txtNombreComponente;
         private System.Windows.Forms.Button btnEliminarComponente;
         private System.Windows.Forms.Button btnCrearComponente;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbAgregarAsignarArbol;
         private System.Windows.Forms.ComboBox cmbComponentesSueltos;
         private System.Windows.Forms.Button btnAgregarAlArbol;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbQuitarDelArbol;
         private System.Windows.Forms.Button btnQuitarDelArbol;
         private System.Windows.Forms.Label lblMensajeSistema;
         private System.Windows.Forms.Button btnSalir;

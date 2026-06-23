@@ -13,7 +13,7 @@ using TDP.Servicios499NA;
 
 namespace TDP.GUI499NA
 {
-    public partial class GestionUsuarios499NA : Form
+    public partial class GestionUsuarios499NA : Form, IIdiomaObserver499NA
     {
         private UsuariosBLL499NA usuariosBLL499NA = new UsuariosBLL499NA();
         private string accionActual499NA = "";
@@ -22,6 +22,8 @@ namespace TDP.GUI499NA
         {
             InitializeComponent();
             lblMensajeSistema.Text = "";
+            IdiomaSubjectBLL499NA.Instancia499NA.Suscribir(this);
+            ActualizarIdioma499NA();
 
         }
 
@@ -31,6 +33,7 @@ namespace TDP.GUI499NA
             CargarPerfilesDinamicos499NA();
             LlenarGrilla499NA();
             AlternarCampos499NA(false);
+            ActualizarIdioma499NA();
         }
 
         private void gbNotificaciones_Enter(object sender, EventArgs e)
@@ -254,7 +257,7 @@ namespace TDP.GUI499NA
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtEmail.Text = "";
-            cbBloqueado.Checked = false;
+            cbUsuarioBloqueado.Checked = false;
             cbUsuarioActivo.Checked = true;
             cmbPerfilRaiz.SelectedIndex = -1;
         }
@@ -284,7 +287,7 @@ namespace TDP.GUI499NA
                 txtApellido.Text = seleccionado.Apellidos499NA;
                 txtEmail.Text = seleccionado.Email499NA;
 
-                cbBloqueado.Checked = seleccionado.Bloqueo499NA;
+                cbUsuarioBloqueado.Checked = seleccionado.Bloqueo499NA;
                 cbUsuarioActivo.Checked = seleccionado.Activo499NA;
 
                 if (seleccionado.IdPermisoRaiz > 0)
@@ -436,6 +439,26 @@ namespace TDP.GUI499NA
             }
         }
 
-        
+        public void ActualizarIdioma499NA()
+        {
+            lblGESTIONDEUSUARIOS.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblGESTIONDEUSUARIOS");
+            lblNombre1.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblNombre1");
+            lblApellido.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblApellido");
+            lblDNI.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblDNI");
+            lblEmail.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblEmail");
+            lblRol.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblRol");
+            cbUsuarioActivo.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("cbUsuarioActivo");
+            cbUsuarioBloqueado.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("cbUsuarioBloqueado");
+            rbActivos.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("rbActivos");
+            rbTodos.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("rbTodos");
+            gbNotificaciones.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("gbNotificaciones");
+            btnCrearUsuario.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnCrearUsuario");
+            btnModificar.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnModificar");
+            btnDesbloquearUsuario.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnDesbloquearUsuario");
+            btnActivarDesactivar.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnActivarDesactivar");
+            btnCancelar.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnCancelar");
+            btnAplicar.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnAplicar");
+            btnSalir.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnSalir");
+        }
     }
 }

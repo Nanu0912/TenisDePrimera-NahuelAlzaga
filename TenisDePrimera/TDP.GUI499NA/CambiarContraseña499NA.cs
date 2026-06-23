@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TDP.BLL499NA;
+using TDP.Servicios499NA;
 
 namespace TDP.GUI499NA
 {
-    public partial class CambiarContraseña499NA : Form
+    public partial class CambiarContraseña499NA : Form, IIdiomaObserver499NA
     {
         public CambiarContraseña499NA()
         {
             InitializeComponent();
+            IdiomaSubjectBLL499NA.Instancia499NA.Suscribir(this);
+            ActualizarIdioma499NA();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -56,6 +60,20 @@ namespace TDP.GUI499NA
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void CambiarContraseña499NA_Load(object sender, EventArgs e)
+        {
+            ActualizarIdioma499NA();
+        }
+
+        public void ActualizarIdioma499NA()
+        {
+            lblContraseñaActual.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblContrasenaActual");
+            lblContraseñaNueva.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblContrasenaNueva");
+            lblConfirmarContraseña.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("lblConfirmarContrasena");
+            btnConfirmar.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnConfirmar");
+            btnVolver.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnVolver");
         }
     }
 }

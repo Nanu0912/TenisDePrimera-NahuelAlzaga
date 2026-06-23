@@ -16,7 +16,7 @@ namespace TDP.GUI499NA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            TDP.BLL499NA.IdiomaSubjectBLL499NA.Instancia499NA.CambiarIdioma(1, "es.txt");
+            //TDP.BLL499NA.IdiomaSubjectBLL499NA.Instancia499NA.CambiarIdioma(1, "es.txt");
             Application.Run(new Login499NA());
         }
     }

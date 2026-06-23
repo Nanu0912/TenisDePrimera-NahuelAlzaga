@@ -28,43 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblBITACORADEEVENTOS = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnAplicar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgBitacora = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtModulo = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtCriticidad = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtEvento = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dtFechaInicio = new System.Windows.Forms.DateTimePicker();
-            this.dtFechaFin = new System.Windows.Forms.DateTimePicker();
             this.NombreUsuario499NA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha499NA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hora499NA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modulo499NA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Evento499NA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Criticidad499NA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblModulo = new System.Windows.Forms.Label();
+            this.txtModulo = new System.Windows.Forms.TextBox();
+            this.lblNombreDeUsuario = new System.Windows.Forms.Label();
+            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
+            this.lblCriticidad = new System.Windows.Forms.Label();
+            this.txtCriticidad = new System.Windows.Forms.TextBox();
+            this.lblEvento = new System.Windows.Forms.Label();
+            this.txtEvento = new System.Windows.Forms.TextBox();
+            this.lblFechaInicio = new System.Windows.Forms.Label();
+            this.lblFechaFin = new System.Windows.Forms.Label();
+            this.dtFechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.dtFechaFin = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgBitacora)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblBITACORADEEVENTOS
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.8F);
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(106, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(368, 36);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "BITACORA DE EVENTOS";
+            this.lblBITACORADEEVENTOS.AutoSize = true;
+            this.lblBITACORADEEVENTOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.8F);
+            this.lblBITACORADEEVENTOS.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblBITACORADEEVENTOS.Location = new System.Drawing.Point(106, 42);
+            this.lblBITACORADEEVENTOS.Name = "lblBITACORADEEVENTOS";
+            this.lblBITACORADEEVENTOS.Size = new System.Drawing.Size(368, 36);
+            this.lblBITACORADEEVENTOS.TabIndex = 1;
+            this.lblBITACORADEEVENTOS.Text = "BITACORA DE EVENTOS";
             // 
             // btnLimpiar
             // 
@@ -147,102 +147,6 @@
             this.dgBitacora.Size = new System.Drawing.Size(1182, 249);
             this.dgBitacora.TabIndex = 11;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(135, 450);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 16);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Modulo";
-            // 
-            // txtModulo
-            // 
-            this.txtModulo.Location = new System.Drawing.Point(225, 444);
-            this.txtModulo.Name = "txtModulo";
-            this.txtModulo.Size = new System.Drawing.Size(182, 22);
-            this.txtModulo.TabIndex = 16;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(73, 386);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 16);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Nombre de Usuario";
-            // 
-            // txtNombreUsuario
-            // 
-            this.txtNombreUsuario.Location = new System.Drawing.Point(225, 380);
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(182, 22);
-            this.txtNombreUsuario.TabIndex = 14;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(747, 450);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 16);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Criticidad";
-            // 
-            // txtCriticidad
-            // 
-            this.txtCriticidad.Location = new System.Drawing.Point(840, 444);
-            this.txtCriticidad.Name = "txtCriticidad";
-            this.txtCriticidad.Size = new System.Drawing.Size(182, 22);
-            this.txtCriticidad.TabIndex = 20;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(445, 450);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 16);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "Evento";
-            // 
-            // txtEvento
-            // 
-            this.txtEvento.Location = new System.Drawing.Point(543, 444);
-            this.txtEvento.Name = "txtEvento";
-            this.txtEvento.Size = new System.Drawing.Size(182, 22);
-            this.txtEvento.TabIndex = 18;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(431, 386);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 16);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Fecha Inicio";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(747, 386);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 16);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "Fecha Fin";
-            // 
-            // dtFechaInicio
-            // 
-            this.dtFechaInicio.Location = new System.Drawing.Point(543, 381);
-            this.dtFechaInicio.Name = "dtFechaInicio";
-            this.dtFechaInicio.Size = new System.Drawing.Size(182, 22);
-            this.dtFechaInicio.TabIndex = 26;
-            // 
-            // dtFechaFin
-            // 
-            this.dtFechaFin.Location = new System.Drawing.Point(840, 381);
-            this.dtFechaFin.Name = "dtFechaFin";
-            this.dtFechaFin.Size = new System.Drawing.Size(182, 22);
-            this.dtFechaFin.TabIndex = 27;
-            // 
             // NombreUsuario499NA
             // 
             this.NombreUsuario499NA.DataPropertyName = "NombreUsuario499NA";
@@ -291,6 +195,102 @@
             this.Criticidad499NA.Name = "Criticidad499NA";
             this.Criticidad499NA.Width = 125;
             // 
+            // lblModulo
+            // 
+            this.lblModulo.AutoSize = true;
+            this.lblModulo.Location = new System.Drawing.Point(135, 450);
+            this.lblModulo.Name = "lblModulo";
+            this.lblModulo.Size = new System.Drawing.Size(52, 16);
+            this.lblModulo.TabIndex = 17;
+            this.lblModulo.Text = "Modulo";
+            // 
+            // txtModulo
+            // 
+            this.txtModulo.Location = new System.Drawing.Point(225, 444);
+            this.txtModulo.Name = "txtModulo";
+            this.txtModulo.Size = new System.Drawing.Size(182, 22);
+            this.txtModulo.TabIndex = 16;
+            // 
+            // lblNombreDeUsuario
+            // 
+            this.lblNombreDeUsuario.AutoSize = true;
+            this.lblNombreDeUsuario.Location = new System.Drawing.Point(73, 386);
+            this.lblNombreDeUsuario.Name = "lblNombreDeUsuario";
+            this.lblNombreDeUsuario.Size = new System.Drawing.Size(125, 16);
+            this.lblNombreDeUsuario.TabIndex = 15;
+            this.lblNombreDeUsuario.Text = "Nombre de Usuario";
+            // 
+            // txtNombreUsuario
+            // 
+            this.txtNombreUsuario.Location = new System.Drawing.Point(225, 380);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(182, 22);
+            this.txtNombreUsuario.TabIndex = 14;
+            // 
+            // lblCriticidad
+            // 
+            this.lblCriticidad.AutoSize = true;
+            this.lblCriticidad.Location = new System.Drawing.Point(747, 450);
+            this.lblCriticidad.Name = "lblCriticidad";
+            this.lblCriticidad.Size = new System.Drawing.Size(63, 16);
+            this.lblCriticidad.TabIndex = 21;
+            this.lblCriticidad.Text = "Criticidad";
+            // 
+            // txtCriticidad
+            // 
+            this.txtCriticidad.Location = new System.Drawing.Point(840, 444);
+            this.txtCriticidad.Name = "txtCriticidad";
+            this.txtCriticidad.Size = new System.Drawing.Size(182, 22);
+            this.txtCriticidad.TabIndex = 20;
+            // 
+            // lblEvento
+            // 
+            this.lblEvento.AutoSize = true;
+            this.lblEvento.Location = new System.Drawing.Point(445, 450);
+            this.lblEvento.Name = "lblEvento";
+            this.lblEvento.Size = new System.Drawing.Size(49, 16);
+            this.lblEvento.TabIndex = 19;
+            this.lblEvento.Text = "Evento";
+            // 
+            // txtEvento
+            // 
+            this.txtEvento.Location = new System.Drawing.Point(543, 444);
+            this.txtEvento.Name = "txtEvento";
+            this.txtEvento.Size = new System.Drawing.Size(182, 22);
+            this.txtEvento.TabIndex = 18;
+            // 
+            // lblFechaInicio
+            // 
+            this.lblFechaInicio.AutoSize = true;
+            this.lblFechaInicio.Location = new System.Drawing.Point(431, 386);
+            this.lblFechaInicio.Name = "lblFechaInicio";
+            this.lblFechaInicio.Size = new System.Drawing.Size(79, 16);
+            this.lblFechaInicio.TabIndex = 23;
+            this.lblFechaInicio.Text = "Fecha Inicio";
+            // 
+            // lblFechaFin
+            // 
+            this.lblFechaFin.AutoSize = true;
+            this.lblFechaFin.Location = new System.Drawing.Point(747, 386);
+            this.lblFechaFin.Name = "lblFechaFin";
+            this.lblFechaFin.Size = new System.Drawing.Size(66, 16);
+            this.lblFechaFin.TabIndex = 25;
+            this.lblFechaFin.Text = "Fecha Fin";
+            // 
+            // dtFechaInicio
+            // 
+            this.dtFechaInicio.Location = new System.Drawing.Point(543, 381);
+            this.dtFechaInicio.Name = "dtFechaInicio";
+            this.dtFechaInicio.Size = new System.Drawing.Size(182, 22);
+            this.dtFechaInicio.TabIndex = 26;
+            // 
+            // dtFechaFin
+            // 
+            this.dtFechaFin.Location = new System.Drawing.Point(840, 381);
+            this.dtFechaFin.Name = "dtFechaFin";
+            this.dtFechaFin.Size = new System.Drawing.Size(182, 22);
+            this.dtFechaFin.TabIndex = 27;
+            // 
             // Bitacora499NA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -299,22 +299,22 @@
             this.ClientSize = new System.Drawing.Size(1302, 610);
             this.Controls.Add(this.dtFechaFin);
             this.Controls.Add(this.dtFechaInicio);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblFechaFin);
+            this.Controls.Add(this.lblFechaInicio);
+            this.Controls.Add(this.lblCriticidad);
             this.Controls.Add(this.txtCriticidad);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lblEvento);
             this.Controls.Add(this.txtEvento);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblModulo);
             this.Controls.Add(this.txtModulo);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblNombreDeUsuario);
             this.Controls.Add(this.txtNombreUsuario);
             this.Controls.Add(this.dgBitacora);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnAplicar);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblBITACORADEEVENTOS);
             this.Name = "Bitacora499NA";
             this.Text = "Bitacora499NA";
             this.Load += new System.EventHandler(this.Bitacora499NA_Load);
@@ -325,22 +325,22 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblBITACORADEEVENTOS;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnAplicar;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridView dgBitacora;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblModulo;
         private System.Windows.Forms.TextBox txtModulo;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblNombreDeUsuario;
         private System.Windows.Forms.TextBox txtNombreUsuario;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblCriticidad;
         private System.Windows.Forms.TextBox txtCriticidad;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblEvento;
         private System.Windows.Forms.TextBox txtEvento;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblFechaInicio;
+        private System.Windows.Forms.Label lblFechaFin;
         private System.Windows.Forms.DateTimePicker dtFechaInicio;
         private System.Windows.Forms.DateTimePicker dtFechaFin;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreUsuario499NA;

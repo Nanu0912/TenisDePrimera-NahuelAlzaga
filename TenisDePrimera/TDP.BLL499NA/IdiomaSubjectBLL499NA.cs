@@ -11,7 +11,7 @@ namespace TDP.BLL499NA
     {
         private static IdiomaSubjectBLL499NA _instancia499NA;
         private List<IIdiomaObserver499NA> _observadores = new List<IIdiomaObserver499NA>();
-        private Dictionary<string, string> _diccionarioActual = new Dictionary<string, string>();
+        private static Dictionary<string, string> _diccionarioActual = new Dictionary<string, string>();
 
         private IdiomaSubjectBLL499NA() { }
 
@@ -31,28 +31,22 @@ namespace TDP.BLL499NA
         {
             try
             {
-                // 1. Carga el diccionario desde el archivo plano (ahora que los nombres coinciden)
                 TraductorBLL499NA traductor = new TraductorBLL499NA();
                 _diccionarioActual = traductor.CargarTraducciones(archivo);
 
-                // 2. Sincroniza con la estructura de Perfiles (¡La habilitamos de vuelta!)
+                Notificar();
                 BLL499NA.PerfilesBLL499NA perfilesBLL = new BLL499NA.PerfilesBLL499NA();
                 perfilesBLL.ActualizarEstructuraTextos499NA();
+                
 
-                // 3. Notifica en cadena a todos los formularios que estén escuchando (Observer)
-                Notificar();
-
-                // 4. Registra el éxito rotundo en tu Bitácora
                 BitacoraBLL499NA bitacoraBLL = new BitacoraBLL499NA();
                 bitacoraBLL.RegistrarEvento("Config", "Cambio de idioma exitoso", 1);
             }
             catch (Exception ex)
             {
-                // Si algo se rompe en el camino, se asienta en la Bitácora de errores
                 BitacoraBLL499NA bitacoraBLL = new BitacoraBLL499NA();
                 bitacoraBLL.RegistrarEvento("Error Idioma", ex.Message, 3);
 
-                // Lanza la excepción limpia para la interfaz de usuario
                 throw new Exception("Falla Carga: No se pudo procesar el archivo de idioma.", ex);
             }
         }

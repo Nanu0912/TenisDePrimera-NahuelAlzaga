@@ -211,6 +211,21 @@ namespace TDP.GUI499NA
         {
             CargarArbolVisual499NA();
             CargarComboComponentesSueltos499NA();
+            ActualizarIdioma499NA();
+        }
+
+        public void ActualizarIdioma499NA()
+        {
+            gbCrearComponentes.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("gbCrearComponentes");
+            gbAgregarAsignarArbol.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("gbAgregarAsignarArbol");
+            gbQuitarDelArbol.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("gbQuitarDelArbol");
+            chkEsFamilia.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("chkEsFamilia");
+            cmbComponentesSueltos.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("cmbComponentesSueltos");
+            btnCrearComponente.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnCrearComponente");
+            btnEliminarComponente.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnEliminarComponente");
+            btnAgregarAlArbol.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnAgregarAlArbol");
+            btnQuitarDelArbol.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnQuitarDelArbol");
+            btnSalir.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("btnSalir");
         }
     }
     
