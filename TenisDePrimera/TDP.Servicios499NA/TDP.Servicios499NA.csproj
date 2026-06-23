@@ -44,6 +44,8 @@
     <Compile Include="BitacoraServicios499NA.cs" />
     <Compile Include="Componente499NA.cs" />
     <Compile Include="Cripto499NA.cs" />
+    <Compile Include="Idioma499NA.cs" />
+    <Compile Include="IIdiomaObserver499NA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionManager499NA.cs" />
     <Compile Include="UsuarioServicios499NA.cs" />

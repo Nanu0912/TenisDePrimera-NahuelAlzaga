@@ -7,15 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TDP.BLL499NA;
 using TDP.Servicios499NA;
 
 namespace TDP.GUI499NA
 {
-    public partial class MenuPrincipal499NA : Form
+    public partial class MenuPrincipal499NA : Form, IIdiomaObserver499NA
     {
         public MenuPrincipal499NA()
         {
             InitializeComponent();
+            IdiomaSubjectBLL499NA.Instancia499NA.Suscribir(this);
+            ActualizarIdioma499NA();
         }
 
         private void maestroToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,7 +67,8 @@ namespace TDP.GUI499NA
 
         private void cambiarIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+           Idiomas499NA i = new Idiomas499NA();
+            Navegador499NA.CambiarPantalla(i);
         }
 
         private void MenuPrincipal499NA_Load(object sender, EventArgs e)
@@ -91,6 +95,8 @@ namespace TDP.GUI499NA
             {
                 MessageBox.Show("Error al validar los permisos del menú: " + ex.Message, "Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            ActualizarIdioma499NA();
         }
 
         private void iniciarSesionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,6 +115,14 @@ namespace TDP.GUI499NA
 
             Perfiles499NA pPerfil = new Perfiles499NA();
             Navegador499NA.CambiarPantalla(pPerfil);
+        }
+
+        public void ActualizarIdioma499NA()
+        {
+            gestionDeCanchasToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("gestionDeCanchasToolStripMenuItem");
+            RegistrarTurnoToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("RegistrarTurnoToolStripMenuItem");
+            CancelarTurnoToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("CancelarTurnoToolStripMenuItem");
+            usuarioToolStripMenuItem.Text = IdiomaSubjectBLL499NA.Instancia499NA.ObtenerTexto("usuarioToolStripMenuItem");
         }
     }
 }

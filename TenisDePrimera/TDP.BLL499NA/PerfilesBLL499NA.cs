@@ -64,5 +64,10 @@ namespace TDP.BLL499NA
         {
             perfilesDAL.ActualizarPadre499NA(idHijo, null);
         }
+
+        public void ActualizarEstructuraTextos499NA()
+        {
+            System.Diagnostics.Debug.WriteLine("Estructura de textos de perfiles actualizada.");
+        }
     }
 }

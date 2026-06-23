@@ -42,8 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitacoraBLL499NA.cs" />
+    <Compile Include="IdiomaBLL499NA.cs" />
+    <Compile Include="IdiomaSubjectBLL499NA.cs" />
     <Compile Include="PerfilesBLL499NA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TraductorBLL499NA.cs" />
     <Compile Include="UsuariosBLL499NA.cs" />
   </ItemGroup>
   <ItemGroup>
